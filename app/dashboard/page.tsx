@@ -1,28 +1,16 @@
 "use client";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { decodeToken, DecodedToken } from "@/lib/auth";
+
+import { useAuth } from "@/lib/context/AuthContext";
 
 export default function Dashboard() {
-  const [user, setUser] = useState<DecodedToken | null>(null);
-  const router = useRouter();
+  const {user, logout} = useAuth();
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) return router.push("/login");
 
-    const decodedUser = decodeToken(token);
-    if (!decodedUser) return router.push("/login");
-
-    setUser(decodedUser);
-  }, [router]);
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    router.push("/login");
-  };
-
-  if (!user) return <div>Loading...</div>;
+  if (!user) return (
+    <div className="flex justify-center items-center h-screen">
+      <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"></div>
+    </div>
+  );
 
   return (
     <div className="p-6">
@@ -35,7 +23,7 @@ export default function Dashboard() {
           <p className="text-white text-xs mt-1 mr-4">
             Anda login sebagai <span className="uppercase">{user.username}</span>
           </p>
-          <button onClick={handleLogout} className="bg-white px-4 py-2 rounded-md shadow-sm text-sm font-medium text-blue-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+          <button onClick={logout} className="bg-white px-4 py-2 rounded-md shadow-sm text-sm font-medium text-blue-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
             Logout
           </button>
         </div>
