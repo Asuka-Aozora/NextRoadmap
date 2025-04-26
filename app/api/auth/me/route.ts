@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 
+// untuk mengenali profile
 export async function GET(request: NextRequest) {
   const token = request.cookies.get("token")?.value;
 

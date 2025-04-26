@@ -1,7 +1,6 @@
 'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
@@ -17,13 +16,14 @@ export default function LoginPage() {
       body: JSON.stringify({ username, password }),
     });
 
-    if (response.ok) {
-      const { token } = await response.json();
-      localStorage.setItem('token', token); // Simpan token
-      router.push('/dashboard');
-    } else {
+    if (!response.ok) {
       alert('Login failed');
     }
+    
+    const { token } = await response.json();
+    localStorage.setItem('token', token); // Simpan token
+    router.push('/dashboard');
+
   };
 
   return (
@@ -57,9 +57,12 @@ export default function LoginPage() {
             />
           </div>
 
-          <Button type="submit" className="w-full">
+          <button
+            type="submit"
+            className="w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded-full shadow-lg"
+          >
             Login
-          </Button>
+          </button>
         </form>
       </div>
     </div>

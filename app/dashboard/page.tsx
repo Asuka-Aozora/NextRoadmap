@@ -1,12 +1,15 @@
 "use client";
 
 import { useAuth } from "@/lib/context/AuthContext";
+import { useRouter } from "next/navigation";
 
 export default function Dashboard() {
+  const router = useRouter();
   const {user, logout} = useAuth();
 
 
   if (!user) return (
+    console.log(user, "loading"),
     <div className="flex justify-center items-center h-screen">
       <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"></div>
     </div>
@@ -32,6 +35,11 @@ export default function Dashboard() {
       {/* Content */}
       <div className="bg-white p-6 rounded-lg shadow">
         <h2 className="text-xl font-semibold mb-4">Progress Pencapaian</h2>
+        <div className="mt-4">
+          <button onClick={() => router.push("/dashboard/frontend")} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Lihat Materi Frontend
+          </button>
+        </div>
         {/* Tampilkan data dari db_pencapaian berdasarkan user.id */}
       </div>
     </div>

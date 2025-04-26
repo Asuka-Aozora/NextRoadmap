@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function POST() {
   try {
-    // Hapus token dari client (contoh dengan mengembalikan token kosong)
+    // untuk menghapus token di dengan postman
     return NextResponse.json({ message: "Logout successful" }, { status: 200 });
   } catch (error) {
     console.error("Logout error:", error);

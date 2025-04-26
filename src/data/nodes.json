@@ -1,0 +1,52 @@
+[
+  {
+    "id": "1",
+    "materi": "Internet",
+    "position_x": -400,
+    "position_y": -200,
+    "parent_id": null,
+    "node_style": { "backgroundColor": "#a0e3f0" }
+  },
+  {
+    "id": "1-1",
+    "materi": "How does the internet work?",
+    "position_x": -600,
+    "position_y": 0,
+    "parent_id": "1",
+    "node_style": { "backgroundColor": "#d0f0ff" }
+  },
+  
+  {
+    "id": "2",
+    "materi": "HTML",
+    "position_x": 0,
+    "position_y": -200,
+    "parent_id": null,
+    "node_style": { "backgroundColor": "#ffe29a" }
+  },
+  {
+    "id": "2-1",
+    "materi": "Learn the basics",
+    "position_x": -200,
+    "position_y": 0,
+    "parent_id": "2",
+    "node_style": { "backgroundColor": "#fff5d2" }
+  },
+  {
+    "id": "3",
+    "materi": "CSS",
+    "position_x": 400,
+    "position_y": -200,
+    "parent_id": null,
+    "node_style": { "backgroundColor": "#d3e5ff" }
+  },
+  {
+    "id": "3-1",
+    "materi": "CSS Syntax",
+    "position_x": 200,
+    "position_y": 0,
+    "parent_id": "3",
+    "node_style": { "backgroundColor": "#e5f0ff" }
+  }
+]
+

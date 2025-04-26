@@ -1,3 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+.react-flow {
+  overflow: hidden !important;
+}

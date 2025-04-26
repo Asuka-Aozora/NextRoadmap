@@ -11,10 +11,10 @@ type User = {
 
 export async function POST(request: Request) {
   try {
-    const { username, password } = await request.json();
+    const { username, password } = await request.json();// terima data login dari client
 
     // Cari user
-    const pool = await createConnection();
+    const pool = await createConnection();// hubungkan ke database
     const [users] = await pool.query(
       "SELECT * FROM db_user WHERE username = ?",
       [username]
@@ -33,7 +33,7 @@ export async function POST(request: Request) {
     }
 
     // Verifikasi password
-    const validPassword = await bcrypt.compare(password, user.password);
+    const validPassword = await bcrypt.compare(password, user.password);// bandingkaan password yg dikirim dgn hash di database
     if (!validPassword) {
       return NextResponse.json(
         { error: "Invalid credentials" },
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
       { expiresIn: "1h" }
     );
 
-    return NextResponse.json({ token }, { status: 200 });
+    return NextResponse.json({ token }, { status: 200 }); // sukses
   } catch (error) {
     console.error("Login error:", error);
     return NextResponse.json(

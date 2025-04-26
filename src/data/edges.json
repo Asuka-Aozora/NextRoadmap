@@ -1,0 +1,23 @@
+[
+  {
+    "id": "e1-1",
+    "source_id": "1",
+    "target_id": "1-1",
+    "type": "default",
+    "animated": true
+  },
+  {
+    "id": "e2-1",
+    "source_id": "2",
+    "target_id": "2-1",
+    "type": "smoothstep",
+    "animated": false
+  },
+  {
+    "id": "e3-1",
+    "source_id": "3",
+    "target_id": "3-1",
+    "type": "step",
+    "animated": true
+  }
+]
