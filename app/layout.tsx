@@ -1,11 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { AuthProvider } from "@/lib/context/AuthContext";
+import { AuthProvider } from "@/app/lib/context/AuthContext";
 
 export const metadata: Metadata = {
   title: "Roadmap With NEXT",
-  description:
-    "Roadmap with Next is a simple app",
+  description: "Roadmap with Next is a simple app",
 };
 
 export default function RootLayout({

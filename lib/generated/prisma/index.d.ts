@@ -19,10 +19,39 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type db_nodes = $Result.DefaultSelection<Prisma.$db_nodesPayload>
 /**
+ * Model db_user
+ * 
+ */
+export type db_user = $Result.DefaultSelection<Prisma.$db_userPayload>
+/**
  * Model db_edges
  * 
  */
 export type db_edges = $Result.DefaultSelection<Prisma.$db_edgesPayload>
+/**
+ * Model db_pencapaian
+ * 
+ */
+export type db_pencapaian = $Result.DefaultSelection<Prisma.$db_pencapaianPayload>
+
+/**
+ * Enums
+ */
+export namespace $Enums {
+  export const NodeStatus: {
+  DONE: 'DONE',
+  IN_PROGRESS: 'IN_PROGRESS',
+  SKIP: 'SKIP',
+  PENDING: 'PENDING'
+};
+
+export type NodeStatus = (typeof NodeStatus)[keyof typeof NodeStatus]
+
+}
+
+export type NodeStatus = $Enums.NodeStatus
+
+export const NodeStatus: typeof $Enums.NodeStatus
 
 /**
  * ##  Prisma Client ʲˢ
@@ -160,6 +189,16 @@ export class PrismaClient<
   get db_nodes(): Prisma.db_nodesDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.db_user`: Exposes CRUD operations for the **db_user** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Db_users
+    * const db_users = await prisma.db_user.findMany()
+    * ```
+    */
+  get db_user(): Prisma.db_userDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.db_edges`: Exposes CRUD operations for the **db_edges** model.
     * Example usage:
     * ```ts
@@ -168,6 +207,16 @@ export class PrismaClient<
     * ```
     */
   get db_edges(): Prisma.db_edgesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.db_pencapaian`: Exposes CRUD operations for the **db_pencapaian** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Db_pencapaians
+    * const db_pencapaians = await prisma.db_pencapaian.findMany()
+    * ```
+    */
+  get db_pencapaian(): Prisma.db_pencapaianDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -609,7 +658,9 @@ export namespace Prisma {
 
   export const ModelName: {
     db_nodes: 'db_nodes',
-    db_edges: 'db_edges'
+    db_user: 'db_user',
+    db_edges: 'db_edges',
+    db_pencapaian: 'db_pencapaian'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -628,7 +679,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "db_nodes" | "db_edges"
+      modelProps: "db_nodes" | "db_user" | "db_edges" | "db_pencapaian"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -698,6 +749,72 @@ export namespace Prisma {
           }
         }
       }
+      db_user: {
+        payload: Prisma.$db_userPayload<ExtArgs>
+        fields: Prisma.db_userFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.db_userFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_userPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.db_userFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_userPayload>
+          }
+          findFirst: {
+            args: Prisma.db_userFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_userPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.db_userFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_userPayload>
+          }
+          findMany: {
+            args: Prisma.db_userFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_userPayload>[]
+          }
+          create: {
+            args: Prisma.db_userCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_userPayload>
+          }
+          createMany: {
+            args: Prisma.db_userCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.db_userDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_userPayload>
+          }
+          update: {
+            args: Prisma.db_userUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_userPayload>
+          }
+          deleteMany: {
+            args: Prisma.db_userDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.db_userUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.db_userUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_userPayload>
+          }
+          aggregate: {
+            args: Prisma.Db_userAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDb_user>
+          }
+          groupBy: {
+            args: Prisma.db_userGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Db_userGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.db_userCountArgs<ExtArgs>
+            result: $Utils.Optional<Db_userCountAggregateOutputType> | number
+          }
+        }
+      }
       db_edges: {
         payload: Prisma.$db_edgesPayload<ExtArgs>
         fields: Prisma.db_edgesFieldRefs
@@ -761,6 +878,72 @@ export namespace Prisma {
           count: {
             args: Prisma.db_edgesCountArgs<ExtArgs>
             result: $Utils.Optional<Db_edgesCountAggregateOutputType> | number
+          }
+        }
+      }
+      db_pencapaian: {
+        payload: Prisma.$db_pencapaianPayload<ExtArgs>
+        fields: Prisma.db_pencapaianFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.db_pencapaianFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_pencapaianPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.db_pencapaianFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_pencapaianPayload>
+          }
+          findFirst: {
+            args: Prisma.db_pencapaianFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_pencapaianPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.db_pencapaianFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_pencapaianPayload>
+          }
+          findMany: {
+            args: Prisma.db_pencapaianFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_pencapaianPayload>[]
+          }
+          create: {
+            args: Prisma.db_pencapaianCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_pencapaianPayload>
+          }
+          createMany: {
+            args: Prisma.db_pencapaianCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.db_pencapaianDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_pencapaianPayload>
+          }
+          update: {
+            args: Prisma.db_pencapaianUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_pencapaianPayload>
+          }
+          deleteMany: {
+            args: Prisma.db_pencapaianDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.db_pencapaianUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.db_pencapaianUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_pencapaianPayload>
+          }
+          aggregate: {
+            args: Prisma.Db_pencapaianAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDb_pencapaian>
+          }
+          groupBy: {
+            args: Prisma.db_pencapaianGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Db_pencapaianGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.db_pencapaianCountArgs<ExtArgs>
+            result: $Utils.Optional<Db_pencapaianCountAggregateOutputType> | number
           }
         }
       }
@@ -849,7 +1032,9 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     db_nodes?: db_nodesOmit
+    db_user?: db_userOmit
     db_edges?: db_edgesOmit
+    db_pencapaian?: db_pencapaianOmit
   }
 
   /* Types for Logging */
@@ -2031,6 +2216,866 @@ export namespace Prisma {
 
 
   /**
+   * Model db_user
+   */
+
+  export type AggregateDb_user = {
+    _count: Db_userCountAggregateOutputType | null
+    _min: Db_userMinAggregateOutputType | null
+    _max: Db_userMaxAggregateOutputType | null
+  }
+
+  export type Db_userMinAggregateOutputType = {
+    id: string | null
+    username: string | null
+    password: string | null
+  }
+
+  export type Db_userMaxAggregateOutputType = {
+    id: string | null
+    username: string | null
+    password: string | null
+  }
+
+  export type Db_userCountAggregateOutputType = {
+    id: number
+    username: number
+    password: number
+    _all: number
+  }
+
+
+  export type Db_userMinAggregateInputType = {
+    id?: true
+    username?: true
+    password?: true
+  }
+
+  export type Db_userMaxAggregateInputType = {
+    id?: true
+    username?: true
+    password?: true
+  }
+
+  export type Db_userCountAggregateInputType = {
+    id?: true
+    username?: true
+    password?: true
+    _all?: true
+  }
+
+  export type Db_userAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which db_user to aggregate.
+     */
+    where?: db_userWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of db_users to fetch.
+     */
+    orderBy?: db_userOrderByWithRelationInput | db_userOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: db_userWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` db_users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` db_users.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned db_users
+    **/
+    _count?: true | Db_userCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Db_userMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Db_userMaxAggregateInputType
+  }
+
+  export type GetDb_userAggregateType<T extends Db_userAggregateArgs> = {
+        [P in keyof T & keyof AggregateDb_user]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDb_user[P]>
+      : GetScalarType<T[P], AggregateDb_user[P]>
+  }
+
+
+
+
+  export type db_userGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: db_userWhereInput
+    orderBy?: db_userOrderByWithAggregationInput | db_userOrderByWithAggregationInput[]
+    by: Db_userScalarFieldEnum[] | Db_userScalarFieldEnum
+    having?: db_userScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Db_userCountAggregateInputType | true
+    _min?: Db_userMinAggregateInputType
+    _max?: Db_userMaxAggregateInputType
+  }
+
+  export type Db_userGroupByOutputType = {
+    id: string
+    username: string
+    password: string
+    _count: Db_userCountAggregateOutputType | null
+    _min: Db_userMinAggregateOutputType | null
+    _max: Db_userMaxAggregateOutputType | null
+  }
+
+  type GetDb_userGroupByPayload<T extends db_userGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Db_userGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Db_userGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Db_userGroupByOutputType[P]>
+            : GetScalarType<T[P], Db_userGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type db_userSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    username?: boolean
+    password?: boolean
+  }, ExtArgs["result"]["db_user"]>
+
+
+
+  export type db_userSelectScalar = {
+    id?: boolean
+    username?: boolean
+    password?: boolean
+  }
+
+  export type db_userOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "password", ExtArgs["result"]["db_user"]>
+
+  export type $db_userPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "db_user"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      username: string
+      password: string
+    }, ExtArgs["result"]["db_user"]>
+    composites: {}
+  }
+
+  type db_userGetPayload<S extends boolean | null | undefined | db_userDefaultArgs> = $Result.GetResult<Prisma.$db_userPayload, S>
+
+  type db_userCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<db_userFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Db_userCountAggregateInputType | true
+    }
+
+  export interface db_userDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['db_user'], meta: { name: 'db_user' } }
+    /**
+     * Find zero or one Db_user that matches the filter.
+     * @param {db_userFindUniqueArgs} args - Arguments to find a Db_user
+     * @example
+     * // Get one Db_user
+     * const db_user = await prisma.db_user.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends db_userFindUniqueArgs>(args: SelectSubset<T, db_userFindUniqueArgs<ExtArgs>>): Prisma__db_userClient<$Result.GetResult<Prisma.$db_userPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Db_user that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {db_userFindUniqueOrThrowArgs} args - Arguments to find a Db_user
+     * @example
+     * // Get one Db_user
+     * const db_user = await prisma.db_user.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends db_userFindUniqueOrThrowArgs>(args: SelectSubset<T, db_userFindUniqueOrThrowArgs<ExtArgs>>): Prisma__db_userClient<$Result.GetResult<Prisma.$db_userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Db_user that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_userFindFirstArgs} args - Arguments to find a Db_user
+     * @example
+     * // Get one Db_user
+     * const db_user = await prisma.db_user.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends db_userFindFirstArgs>(args?: SelectSubset<T, db_userFindFirstArgs<ExtArgs>>): Prisma__db_userClient<$Result.GetResult<Prisma.$db_userPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Db_user that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_userFindFirstOrThrowArgs} args - Arguments to find a Db_user
+     * @example
+     * // Get one Db_user
+     * const db_user = await prisma.db_user.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends db_userFindFirstOrThrowArgs>(args?: SelectSubset<T, db_userFindFirstOrThrowArgs<ExtArgs>>): Prisma__db_userClient<$Result.GetResult<Prisma.$db_userPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Db_users that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_userFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Db_users
+     * const db_users = await prisma.db_user.findMany()
+     * 
+     * // Get first 10 Db_users
+     * const db_users = await prisma.db_user.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const db_userWithIdOnly = await prisma.db_user.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends db_userFindManyArgs>(args?: SelectSubset<T, db_userFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$db_userPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Db_user.
+     * @param {db_userCreateArgs} args - Arguments to create a Db_user.
+     * @example
+     * // Create one Db_user
+     * const Db_user = await prisma.db_user.create({
+     *   data: {
+     *     // ... data to create a Db_user
+     *   }
+     * })
+     * 
+     */
+    create<T extends db_userCreateArgs>(args: SelectSubset<T, db_userCreateArgs<ExtArgs>>): Prisma__db_userClient<$Result.GetResult<Prisma.$db_userPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Db_users.
+     * @param {db_userCreateManyArgs} args - Arguments to create many Db_users.
+     * @example
+     * // Create many Db_users
+     * const db_user = await prisma.db_user.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends db_userCreateManyArgs>(args?: SelectSubset<T, db_userCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Db_user.
+     * @param {db_userDeleteArgs} args - Arguments to delete one Db_user.
+     * @example
+     * // Delete one Db_user
+     * const Db_user = await prisma.db_user.delete({
+     *   where: {
+     *     // ... filter to delete one Db_user
+     *   }
+     * })
+     * 
+     */
+    delete<T extends db_userDeleteArgs>(args: SelectSubset<T, db_userDeleteArgs<ExtArgs>>): Prisma__db_userClient<$Result.GetResult<Prisma.$db_userPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Db_user.
+     * @param {db_userUpdateArgs} args - Arguments to update one Db_user.
+     * @example
+     * // Update one Db_user
+     * const db_user = await prisma.db_user.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends db_userUpdateArgs>(args: SelectSubset<T, db_userUpdateArgs<ExtArgs>>): Prisma__db_userClient<$Result.GetResult<Prisma.$db_userPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Db_users.
+     * @param {db_userDeleteManyArgs} args - Arguments to filter Db_users to delete.
+     * @example
+     * // Delete a few Db_users
+     * const { count } = await prisma.db_user.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends db_userDeleteManyArgs>(args?: SelectSubset<T, db_userDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Db_users.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_userUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Db_users
+     * const db_user = await prisma.db_user.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends db_userUpdateManyArgs>(args: SelectSubset<T, db_userUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Db_user.
+     * @param {db_userUpsertArgs} args - Arguments to update or create a Db_user.
+     * @example
+     * // Update or create a Db_user
+     * const db_user = await prisma.db_user.upsert({
+     *   create: {
+     *     // ... data to create a Db_user
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Db_user we want to update
+     *   }
+     * })
+     */
+    upsert<T extends db_userUpsertArgs>(args: SelectSubset<T, db_userUpsertArgs<ExtArgs>>): Prisma__db_userClient<$Result.GetResult<Prisma.$db_userPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Db_users.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_userCountArgs} args - Arguments to filter Db_users to count.
+     * @example
+     * // Count the number of Db_users
+     * const count = await prisma.db_user.count({
+     *   where: {
+     *     // ... the filter for the Db_users we want to count
+     *   }
+     * })
+    **/
+    count<T extends db_userCountArgs>(
+      args?: Subset<T, db_userCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Db_userCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Db_user.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Db_userAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Db_userAggregateArgs>(args: Subset<T, Db_userAggregateArgs>): Prisma.PrismaPromise<GetDb_userAggregateType<T>>
+
+    /**
+     * Group by Db_user.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_userGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends db_userGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: db_userGroupByArgs['orderBy'] }
+        : { orderBy?: db_userGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, db_userGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDb_userGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the db_user model
+   */
+  readonly fields: db_userFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for db_user.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__db_userClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the db_user model
+   */
+  interface db_userFieldRefs {
+    readonly id: FieldRef<"db_user", 'String'>
+    readonly username: FieldRef<"db_user", 'String'>
+    readonly password: FieldRef<"db_user", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * db_user findUnique
+   */
+  export type db_userFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_user
+     */
+    select?: db_userSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_user
+     */
+    omit?: db_userOmit<ExtArgs> | null
+    /**
+     * Filter, which db_user to fetch.
+     */
+    where: db_userWhereUniqueInput
+  }
+
+  /**
+   * db_user findUniqueOrThrow
+   */
+  export type db_userFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_user
+     */
+    select?: db_userSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_user
+     */
+    omit?: db_userOmit<ExtArgs> | null
+    /**
+     * Filter, which db_user to fetch.
+     */
+    where: db_userWhereUniqueInput
+  }
+
+  /**
+   * db_user findFirst
+   */
+  export type db_userFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_user
+     */
+    select?: db_userSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_user
+     */
+    omit?: db_userOmit<ExtArgs> | null
+    /**
+     * Filter, which db_user to fetch.
+     */
+    where?: db_userWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of db_users to fetch.
+     */
+    orderBy?: db_userOrderByWithRelationInput | db_userOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for db_users.
+     */
+    cursor?: db_userWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` db_users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` db_users.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of db_users.
+     */
+    distinct?: Db_userScalarFieldEnum | Db_userScalarFieldEnum[]
+  }
+
+  /**
+   * db_user findFirstOrThrow
+   */
+  export type db_userFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_user
+     */
+    select?: db_userSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_user
+     */
+    omit?: db_userOmit<ExtArgs> | null
+    /**
+     * Filter, which db_user to fetch.
+     */
+    where?: db_userWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of db_users to fetch.
+     */
+    orderBy?: db_userOrderByWithRelationInput | db_userOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for db_users.
+     */
+    cursor?: db_userWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` db_users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` db_users.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of db_users.
+     */
+    distinct?: Db_userScalarFieldEnum | Db_userScalarFieldEnum[]
+  }
+
+  /**
+   * db_user findMany
+   */
+  export type db_userFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_user
+     */
+    select?: db_userSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_user
+     */
+    omit?: db_userOmit<ExtArgs> | null
+    /**
+     * Filter, which db_users to fetch.
+     */
+    where?: db_userWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of db_users to fetch.
+     */
+    orderBy?: db_userOrderByWithRelationInput | db_userOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing db_users.
+     */
+    cursor?: db_userWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` db_users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` db_users.
+     */
+    skip?: number
+    distinct?: Db_userScalarFieldEnum | Db_userScalarFieldEnum[]
+  }
+
+  /**
+   * db_user create
+   */
+  export type db_userCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_user
+     */
+    select?: db_userSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_user
+     */
+    omit?: db_userOmit<ExtArgs> | null
+    /**
+     * The data needed to create a db_user.
+     */
+    data: XOR<db_userCreateInput, db_userUncheckedCreateInput>
+  }
+
+  /**
+   * db_user createMany
+   */
+  export type db_userCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many db_users.
+     */
+    data: db_userCreateManyInput | db_userCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * db_user update
+   */
+  export type db_userUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_user
+     */
+    select?: db_userSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_user
+     */
+    omit?: db_userOmit<ExtArgs> | null
+    /**
+     * The data needed to update a db_user.
+     */
+    data: XOR<db_userUpdateInput, db_userUncheckedUpdateInput>
+    /**
+     * Choose, which db_user to update.
+     */
+    where: db_userWhereUniqueInput
+  }
+
+  /**
+   * db_user updateMany
+   */
+  export type db_userUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update db_users.
+     */
+    data: XOR<db_userUpdateManyMutationInput, db_userUncheckedUpdateManyInput>
+    /**
+     * Filter which db_users to update
+     */
+    where?: db_userWhereInput
+    /**
+     * Limit how many db_users to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * db_user upsert
+   */
+  export type db_userUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_user
+     */
+    select?: db_userSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_user
+     */
+    omit?: db_userOmit<ExtArgs> | null
+    /**
+     * The filter to search for the db_user to update in case it exists.
+     */
+    where: db_userWhereUniqueInput
+    /**
+     * In case the db_user found by the `where` argument doesn't exist, create a new db_user with this data.
+     */
+    create: XOR<db_userCreateInput, db_userUncheckedCreateInput>
+    /**
+     * In case the db_user was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<db_userUpdateInput, db_userUncheckedUpdateInput>
+  }
+
+  /**
+   * db_user delete
+   */
+  export type db_userDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_user
+     */
+    select?: db_userSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_user
+     */
+    omit?: db_userOmit<ExtArgs> | null
+    /**
+     * Filter which db_user to delete.
+     */
+    where: db_userWhereUniqueInput
+  }
+
+  /**
+   * db_user deleteMany
+   */
+  export type db_userDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which db_users to delete
+     */
+    where?: db_userWhereInput
+    /**
+     * Limit how many db_users to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * db_user without action
+   */
+  export type db_userDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_user
+     */
+    select?: db_userSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_user
+     */
+    omit?: db_userOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Model db_edges
    */
 
@@ -2935,6 +3980,888 @@ export namespace Prisma {
 
 
   /**
+   * Model db_pencapaian
+   */
+
+  export type AggregateDb_pencapaian = {
+    _count: Db_pencapaianCountAggregateOutputType | null
+    _min: Db_pencapaianMinAggregateOutputType | null
+    _max: Db_pencapaianMaxAggregateOutputType | null
+  }
+
+  export type Db_pencapaianMinAggregateOutputType = {
+    id: string | null
+    user_id: string | null
+    node_id: string | null
+    status: $Enums.NodeStatus | null
+    completed_at: Date | null
+  }
+
+  export type Db_pencapaianMaxAggregateOutputType = {
+    id: string | null
+    user_id: string | null
+    node_id: string | null
+    status: $Enums.NodeStatus | null
+    completed_at: Date | null
+  }
+
+  export type Db_pencapaianCountAggregateOutputType = {
+    id: number
+    user_id: number
+    node_id: number
+    status: number
+    completed_at: number
+    _all: number
+  }
+
+
+  export type Db_pencapaianMinAggregateInputType = {
+    id?: true
+    user_id?: true
+    node_id?: true
+    status?: true
+    completed_at?: true
+  }
+
+  export type Db_pencapaianMaxAggregateInputType = {
+    id?: true
+    user_id?: true
+    node_id?: true
+    status?: true
+    completed_at?: true
+  }
+
+  export type Db_pencapaianCountAggregateInputType = {
+    id?: true
+    user_id?: true
+    node_id?: true
+    status?: true
+    completed_at?: true
+    _all?: true
+  }
+
+  export type Db_pencapaianAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which db_pencapaian to aggregate.
+     */
+    where?: db_pencapaianWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of db_pencapaians to fetch.
+     */
+    orderBy?: db_pencapaianOrderByWithRelationInput | db_pencapaianOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: db_pencapaianWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` db_pencapaians from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` db_pencapaians.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned db_pencapaians
+    **/
+    _count?: true | Db_pencapaianCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Db_pencapaianMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Db_pencapaianMaxAggregateInputType
+  }
+
+  export type GetDb_pencapaianAggregateType<T extends Db_pencapaianAggregateArgs> = {
+        [P in keyof T & keyof AggregateDb_pencapaian]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDb_pencapaian[P]>
+      : GetScalarType<T[P], AggregateDb_pencapaian[P]>
+  }
+
+
+
+
+  export type db_pencapaianGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: db_pencapaianWhereInput
+    orderBy?: db_pencapaianOrderByWithAggregationInput | db_pencapaianOrderByWithAggregationInput[]
+    by: Db_pencapaianScalarFieldEnum[] | Db_pencapaianScalarFieldEnum
+    having?: db_pencapaianScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Db_pencapaianCountAggregateInputType | true
+    _min?: Db_pencapaianMinAggregateInputType
+    _max?: Db_pencapaianMaxAggregateInputType
+  }
+
+  export type Db_pencapaianGroupByOutputType = {
+    id: string
+    user_id: string
+    node_id: string
+    status: $Enums.NodeStatus
+    completed_at: Date | null
+    _count: Db_pencapaianCountAggregateOutputType | null
+    _min: Db_pencapaianMinAggregateOutputType | null
+    _max: Db_pencapaianMaxAggregateOutputType | null
+  }
+
+  type GetDb_pencapaianGroupByPayload<T extends db_pencapaianGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Db_pencapaianGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Db_pencapaianGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Db_pencapaianGroupByOutputType[P]>
+            : GetScalarType<T[P], Db_pencapaianGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type db_pencapaianSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    node_id?: boolean
+    status?: boolean
+    completed_at?: boolean
+  }, ExtArgs["result"]["db_pencapaian"]>
+
+
+
+  export type db_pencapaianSelectScalar = {
+    id?: boolean
+    user_id?: boolean
+    node_id?: boolean
+    status?: boolean
+    completed_at?: boolean
+  }
+
+  export type db_pencapaianOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "node_id" | "status" | "completed_at", ExtArgs["result"]["db_pencapaian"]>
+
+  export type $db_pencapaianPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "db_pencapaian"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      user_id: string
+      node_id: string
+      status: $Enums.NodeStatus
+      completed_at: Date | null
+    }, ExtArgs["result"]["db_pencapaian"]>
+    composites: {}
+  }
+
+  type db_pencapaianGetPayload<S extends boolean | null | undefined | db_pencapaianDefaultArgs> = $Result.GetResult<Prisma.$db_pencapaianPayload, S>
+
+  type db_pencapaianCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<db_pencapaianFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Db_pencapaianCountAggregateInputType | true
+    }
+
+  export interface db_pencapaianDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['db_pencapaian'], meta: { name: 'db_pencapaian' } }
+    /**
+     * Find zero or one Db_pencapaian that matches the filter.
+     * @param {db_pencapaianFindUniqueArgs} args - Arguments to find a Db_pencapaian
+     * @example
+     * // Get one Db_pencapaian
+     * const db_pencapaian = await prisma.db_pencapaian.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends db_pencapaianFindUniqueArgs>(args: SelectSubset<T, db_pencapaianFindUniqueArgs<ExtArgs>>): Prisma__db_pencapaianClient<$Result.GetResult<Prisma.$db_pencapaianPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Db_pencapaian that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {db_pencapaianFindUniqueOrThrowArgs} args - Arguments to find a Db_pencapaian
+     * @example
+     * // Get one Db_pencapaian
+     * const db_pencapaian = await prisma.db_pencapaian.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends db_pencapaianFindUniqueOrThrowArgs>(args: SelectSubset<T, db_pencapaianFindUniqueOrThrowArgs<ExtArgs>>): Prisma__db_pencapaianClient<$Result.GetResult<Prisma.$db_pencapaianPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Db_pencapaian that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_pencapaianFindFirstArgs} args - Arguments to find a Db_pencapaian
+     * @example
+     * // Get one Db_pencapaian
+     * const db_pencapaian = await prisma.db_pencapaian.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends db_pencapaianFindFirstArgs>(args?: SelectSubset<T, db_pencapaianFindFirstArgs<ExtArgs>>): Prisma__db_pencapaianClient<$Result.GetResult<Prisma.$db_pencapaianPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Db_pencapaian that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_pencapaianFindFirstOrThrowArgs} args - Arguments to find a Db_pencapaian
+     * @example
+     * // Get one Db_pencapaian
+     * const db_pencapaian = await prisma.db_pencapaian.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends db_pencapaianFindFirstOrThrowArgs>(args?: SelectSubset<T, db_pencapaianFindFirstOrThrowArgs<ExtArgs>>): Prisma__db_pencapaianClient<$Result.GetResult<Prisma.$db_pencapaianPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Db_pencapaians that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_pencapaianFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Db_pencapaians
+     * const db_pencapaians = await prisma.db_pencapaian.findMany()
+     * 
+     * // Get first 10 Db_pencapaians
+     * const db_pencapaians = await prisma.db_pencapaian.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const db_pencapaianWithIdOnly = await prisma.db_pencapaian.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends db_pencapaianFindManyArgs>(args?: SelectSubset<T, db_pencapaianFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$db_pencapaianPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Db_pencapaian.
+     * @param {db_pencapaianCreateArgs} args - Arguments to create a Db_pencapaian.
+     * @example
+     * // Create one Db_pencapaian
+     * const Db_pencapaian = await prisma.db_pencapaian.create({
+     *   data: {
+     *     // ... data to create a Db_pencapaian
+     *   }
+     * })
+     * 
+     */
+    create<T extends db_pencapaianCreateArgs>(args: SelectSubset<T, db_pencapaianCreateArgs<ExtArgs>>): Prisma__db_pencapaianClient<$Result.GetResult<Prisma.$db_pencapaianPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Db_pencapaians.
+     * @param {db_pencapaianCreateManyArgs} args - Arguments to create many Db_pencapaians.
+     * @example
+     * // Create many Db_pencapaians
+     * const db_pencapaian = await prisma.db_pencapaian.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends db_pencapaianCreateManyArgs>(args?: SelectSubset<T, db_pencapaianCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Db_pencapaian.
+     * @param {db_pencapaianDeleteArgs} args - Arguments to delete one Db_pencapaian.
+     * @example
+     * // Delete one Db_pencapaian
+     * const Db_pencapaian = await prisma.db_pencapaian.delete({
+     *   where: {
+     *     // ... filter to delete one Db_pencapaian
+     *   }
+     * })
+     * 
+     */
+    delete<T extends db_pencapaianDeleteArgs>(args: SelectSubset<T, db_pencapaianDeleteArgs<ExtArgs>>): Prisma__db_pencapaianClient<$Result.GetResult<Prisma.$db_pencapaianPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Db_pencapaian.
+     * @param {db_pencapaianUpdateArgs} args - Arguments to update one Db_pencapaian.
+     * @example
+     * // Update one Db_pencapaian
+     * const db_pencapaian = await prisma.db_pencapaian.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends db_pencapaianUpdateArgs>(args: SelectSubset<T, db_pencapaianUpdateArgs<ExtArgs>>): Prisma__db_pencapaianClient<$Result.GetResult<Prisma.$db_pencapaianPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Db_pencapaians.
+     * @param {db_pencapaianDeleteManyArgs} args - Arguments to filter Db_pencapaians to delete.
+     * @example
+     * // Delete a few Db_pencapaians
+     * const { count } = await prisma.db_pencapaian.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends db_pencapaianDeleteManyArgs>(args?: SelectSubset<T, db_pencapaianDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Db_pencapaians.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_pencapaianUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Db_pencapaians
+     * const db_pencapaian = await prisma.db_pencapaian.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends db_pencapaianUpdateManyArgs>(args: SelectSubset<T, db_pencapaianUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Db_pencapaian.
+     * @param {db_pencapaianUpsertArgs} args - Arguments to update or create a Db_pencapaian.
+     * @example
+     * // Update or create a Db_pencapaian
+     * const db_pencapaian = await prisma.db_pencapaian.upsert({
+     *   create: {
+     *     // ... data to create a Db_pencapaian
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Db_pencapaian we want to update
+     *   }
+     * })
+     */
+    upsert<T extends db_pencapaianUpsertArgs>(args: SelectSubset<T, db_pencapaianUpsertArgs<ExtArgs>>): Prisma__db_pencapaianClient<$Result.GetResult<Prisma.$db_pencapaianPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Db_pencapaians.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_pencapaianCountArgs} args - Arguments to filter Db_pencapaians to count.
+     * @example
+     * // Count the number of Db_pencapaians
+     * const count = await prisma.db_pencapaian.count({
+     *   where: {
+     *     // ... the filter for the Db_pencapaians we want to count
+     *   }
+     * })
+    **/
+    count<T extends db_pencapaianCountArgs>(
+      args?: Subset<T, db_pencapaianCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Db_pencapaianCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Db_pencapaian.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Db_pencapaianAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Db_pencapaianAggregateArgs>(args: Subset<T, Db_pencapaianAggregateArgs>): Prisma.PrismaPromise<GetDb_pencapaianAggregateType<T>>
+
+    /**
+     * Group by Db_pencapaian.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_pencapaianGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends db_pencapaianGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: db_pencapaianGroupByArgs['orderBy'] }
+        : { orderBy?: db_pencapaianGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, db_pencapaianGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDb_pencapaianGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the db_pencapaian model
+   */
+  readonly fields: db_pencapaianFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for db_pencapaian.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__db_pencapaianClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the db_pencapaian model
+   */
+  interface db_pencapaianFieldRefs {
+    readonly id: FieldRef<"db_pencapaian", 'String'>
+    readonly user_id: FieldRef<"db_pencapaian", 'String'>
+    readonly node_id: FieldRef<"db_pencapaian", 'String'>
+    readonly status: FieldRef<"db_pencapaian", 'NodeStatus'>
+    readonly completed_at: FieldRef<"db_pencapaian", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * db_pencapaian findUnique
+   */
+  export type db_pencapaianFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_pencapaian
+     */
+    select?: db_pencapaianSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_pencapaian
+     */
+    omit?: db_pencapaianOmit<ExtArgs> | null
+    /**
+     * Filter, which db_pencapaian to fetch.
+     */
+    where: db_pencapaianWhereUniqueInput
+  }
+
+  /**
+   * db_pencapaian findUniqueOrThrow
+   */
+  export type db_pencapaianFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_pencapaian
+     */
+    select?: db_pencapaianSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_pencapaian
+     */
+    omit?: db_pencapaianOmit<ExtArgs> | null
+    /**
+     * Filter, which db_pencapaian to fetch.
+     */
+    where: db_pencapaianWhereUniqueInput
+  }
+
+  /**
+   * db_pencapaian findFirst
+   */
+  export type db_pencapaianFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_pencapaian
+     */
+    select?: db_pencapaianSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_pencapaian
+     */
+    omit?: db_pencapaianOmit<ExtArgs> | null
+    /**
+     * Filter, which db_pencapaian to fetch.
+     */
+    where?: db_pencapaianWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of db_pencapaians to fetch.
+     */
+    orderBy?: db_pencapaianOrderByWithRelationInput | db_pencapaianOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for db_pencapaians.
+     */
+    cursor?: db_pencapaianWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` db_pencapaians from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` db_pencapaians.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of db_pencapaians.
+     */
+    distinct?: Db_pencapaianScalarFieldEnum | Db_pencapaianScalarFieldEnum[]
+  }
+
+  /**
+   * db_pencapaian findFirstOrThrow
+   */
+  export type db_pencapaianFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_pencapaian
+     */
+    select?: db_pencapaianSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_pencapaian
+     */
+    omit?: db_pencapaianOmit<ExtArgs> | null
+    /**
+     * Filter, which db_pencapaian to fetch.
+     */
+    where?: db_pencapaianWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of db_pencapaians to fetch.
+     */
+    orderBy?: db_pencapaianOrderByWithRelationInput | db_pencapaianOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for db_pencapaians.
+     */
+    cursor?: db_pencapaianWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` db_pencapaians from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` db_pencapaians.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of db_pencapaians.
+     */
+    distinct?: Db_pencapaianScalarFieldEnum | Db_pencapaianScalarFieldEnum[]
+  }
+
+  /**
+   * db_pencapaian findMany
+   */
+  export type db_pencapaianFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_pencapaian
+     */
+    select?: db_pencapaianSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_pencapaian
+     */
+    omit?: db_pencapaianOmit<ExtArgs> | null
+    /**
+     * Filter, which db_pencapaians to fetch.
+     */
+    where?: db_pencapaianWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of db_pencapaians to fetch.
+     */
+    orderBy?: db_pencapaianOrderByWithRelationInput | db_pencapaianOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing db_pencapaians.
+     */
+    cursor?: db_pencapaianWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` db_pencapaians from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` db_pencapaians.
+     */
+    skip?: number
+    distinct?: Db_pencapaianScalarFieldEnum | Db_pencapaianScalarFieldEnum[]
+  }
+
+  /**
+   * db_pencapaian create
+   */
+  export type db_pencapaianCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_pencapaian
+     */
+    select?: db_pencapaianSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_pencapaian
+     */
+    omit?: db_pencapaianOmit<ExtArgs> | null
+    /**
+     * The data needed to create a db_pencapaian.
+     */
+    data: XOR<db_pencapaianCreateInput, db_pencapaianUncheckedCreateInput>
+  }
+
+  /**
+   * db_pencapaian createMany
+   */
+  export type db_pencapaianCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many db_pencapaians.
+     */
+    data: db_pencapaianCreateManyInput | db_pencapaianCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * db_pencapaian update
+   */
+  export type db_pencapaianUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_pencapaian
+     */
+    select?: db_pencapaianSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_pencapaian
+     */
+    omit?: db_pencapaianOmit<ExtArgs> | null
+    /**
+     * The data needed to update a db_pencapaian.
+     */
+    data: XOR<db_pencapaianUpdateInput, db_pencapaianUncheckedUpdateInput>
+    /**
+     * Choose, which db_pencapaian to update.
+     */
+    where: db_pencapaianWhereUniqueInput
+  }
+
+  /**
+   * db_pencapaian updateMany
+   */
+  export type db_pencapaianUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update db_pencapaians.
+     */
+    data: XOR<db_pencapaianUpdateManyMutationInput, db_pencapaianUncheckedUpdateManyInput>
+    /**
+     * Filter which db_pencapaians to update
+     */
+    where?: db_pencapaianWhereInput
+    /**
+     * Limit how many db_pencapaians to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * db_pencapaian upsert
+   */
+  export type db_pencapaianUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_pencapaian
+     */
+    select?: db_pencapaianSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_pencapaian
+     */
+    omit?: db_pencapaianOmit<ExtArgs> | null
+    /**
+     * The filter to search for the db_pencapaian to update in case it exists.
+     */
+    where: db_pencapaianWhereUniqueInput
+    /**
+     * In case the db_pencapaian found by the `where` argument doesn't exist, create a new db_pencapaian with this data.
+     */
+    create: XOR<db_pencapaianCreateInput, db_pencapaianUncheckedCreateInput>
+    /**
+     * In case the db_pencapaian was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<db_pencapaianUpdateInput, db_pencapaianUncheckedUpdateInput>
+  }
+
+  /**
+   * db_pencapaian delete
+   */
+  export type db_pencapaianDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_pencapaian
+     */
+    select?: db_pencapaianSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_pencapaian
+     */
+    omit?: db_pencapaianOmit<ExtArgs> | null
+    /**
+     * Filter which db_pencapaian to delete.
+     */
+    where: db_pencapaianWhereUniqueInput
+  }
+
+  /**
+   * db_pencapaian deleteMany
+   */
+  export type db_pencapaianDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which db_pencapaians to delete
+     */
+    where?: db_pencapaianWhereInput
+    /**
+     * Limit how many db_pencapaians to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * db_pencapaian without action
+   */
+  export type db_pencapaianDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_pencapaian
+     */
+    select?: db_pencapaianSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_pencapaian
+     */
+    omit?: db_pencapaianOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -2963,6 +4890,15 @@ export namespace Prisma {
   export type Db_nodesScalarFieldEnum = (typeof Db_nodesScalarFieldEnum)[keyof typeof Db_nodesScalarFieldEnum]
 
 
+  export const Db_userScalarFieldEnum: {
+    id: 'id',
+    username: 'username',
+    password: 'password'
+  };
+
+  export type Db_userScalarFieldEnum = (typeof Db_userScalarFieldEnum)[keyof typeof Db_userScalarFieldEnum]
+
+
   export const Db_edgesScalarFieldEnum: {
     id: 'id',
     source_id: 'source_id',
@@ -2974,6 +4910,17 @@ export namespace Prisma {
   };
 
   export type Db_edgesScalarFieldEnum = (typeof Db_edgesScalarFieldEnum)[keyof typeof Db_edgesScalarFieldEnum]
+
+
+  export const Db_pencapaianScalarFieldEnum: {
+    id: 'id',
+    user_id: 'user_id',
+    node_id: 'node_id',
+    status: 'status',
+    completed_at: 'completed_at'
+  };
+
+  export type Db_pencapaianScalarFieldEnum = (typeof Db_pencapaianScalarFieldEnum)[keyof typeof Db_pencapaianScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3029,6 +4976,15 @@ export namespace Prisma {
   export type db_nodesOrderByRelevanceFieldEnum = (typeof db_nodesOrderByRelevanceFieldEnum)[keyof typeof db_nodesOrderByRelevanceFieldEnum]
 
 
+  export const db_userOrderByRelevanceFieldEnum: {
+    id: 'id',
+    username: 'username',
+    password: 'password'
+  };
+
+  export type db_userOrderByRelevanceFieldEnum = (typeof db_userOrderByRelevanceFieldEnum)[keyof typeof db_userOrderByRelevanceFieldEnum]
+
+
   export const db_edgesOrderByRelevanceFieldEnum: {
     id: 'id',
     source_id: 'source_id',
@@ -3039,6 +4995,15 @@ export namespace Prisma {
   };
 
   export type db_edgesOrderByRelevanceFieldEnum = (typeof db_edgesOrderByRelevanceFieldEnum)[keyof typeof db_edgesOrderByRelevanceFieldEnum]
+
+
+  export const db_pencapaianOrderByRelevanceFieldEnum: {
+    id: 'id',
+    user_id: 'user_id',
+    node_id: 'node_id'
+  };
+
+  export type db_pencapaianOrderByRelevanceFieldEnum = (typeof db_pencapaianOrderByRelevanceFieldEnum)[keyof typeof db_pencapaianOrderByRelevanceFieldEnum]
 
 
   /**
@@ -3078,6 +5043,20 @@ export namespace Prisma {
    * Reference to a field of type 'Boolean'
    */
   export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
+   * Reference to a field of type 'NodeStatus'
+   */
+  export type EnumNodeStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'NodeStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
     
 
 
@@ -3172,6 +5151,49 @@ export namespace Prisma {
     target_position?: StringNullableWithAggregatesFilter<"db_nodes"> | string | null
   }
 
+  export type db_userWhereInput = {
+    AND?: db_userWhereInput | db_userWhereInput[]
+    OR?: db_userWhereInput[]
+    NOT?: db_userWhereInput | db_userWhereInput[]
+    id?: StringFilter<"db_user"> | string
+    username?: StringFilter<"db_user"> | string
+    password?: StringFilter<"db_user"> | string
+  }
+
+  export type db_userOrderByWithRelationInput = {
+    id?: SortOrder
+    username?: SortOrder
+    password?: SortOrder
+    _relevance?: db_userOrderByRelevanceInput
+  }
+
+  export type db_userWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: db_userWhereInput | db_userWhereInput[]
+    OR?: db_userWhereInput[]
+    NOT?: db_userWhereInput | db_userWhereInput[]
+    username?: StringFilter<"db_user"> | string
+    password?: StringFilter<"db_user"> | string
+  }, "id">
+
+  export type db_userOrderByWithAggregationInput = {
+    id?: SortOrder
+    username?: SortOrder
+    password?: SortOrder
+    _count?: db_userCountOrderByAggregateInput
+    _max?: db_userMaxOrderByAggregateInput
+    _min?: db_userMinOrderByAggregateInput
+  }
+
+  export type db_userScalarWhereWithAggregatesInput = {
+    AND?: db_userScalarWhereWithAggregatesInput | db_userScalarWhereWithAggregatesInput[]
+    OR?: db_userScalarWhereWithAggregatesInput[]
+    NOT?: db_userScalarWhereWithAggregatesInput | db_userScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"db_user"> | string
+    username?: StringWithAggregatesFilter<"db_user"> | string
+    password?: StringWithAggregatesFilter<"db_user"> | string
+  }
+
   export type db_edgesWhereInput = {
     AND?: db_edgesWhereInput | db_edgesWhereInput[]
     OR?: db_edgesWhereInput[]
@@ -3233,6 +5255,60 @@ export namespace Prisma {
     animated?: BoolWithAggregatesFilter<"db_edges"> | boolean
     source_handle?: StringNullableWithAggregatesFilter<"db_edges"> | string | null
     target_handle?: StringNullableWithAggregatesFilter<"db_edges"> | string | null
+  }
+
+  export type db_pencapaianWhereInput = {
+    AND?: db_pencapaianWhereInput | db_pencapaianWhereInput[]
+    OR?: db_pencapaianWhereInput[]
+    NOT?: db_pencapaianWhereInput | db_pencapaianWhereInput[]
+    id?: StringFilter<"db_pencapaian"> | string
+    user_id?: StringFilter<"db_pencapaian"> | string
+    node_id?: StringFilter<"db_pencapaian"> | string
+    status?: EnumNodeStatusFilter<"db_pencapaian"> | $Enums.NodeStatus
+    completed_at?: DateTimeNullableFilter<"db_pencapaian"> | Date | string | null
+  }
+
+  export type db_pencapaianOrderByWithRelationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    node_id?: SortOrder
+    status?: SortOrder
+    completed_at?: SortOrderInput | SortOrder
+    _relevance?: db_pencapaianOrderByRelevanceInput
+  }
+
+  export type db_pencapaianWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    user_id_node_id?: db_pencapaianUser_idNode_idCompoundUniqueInput
+    AND?: db_pencapaianWhereInput | db_pencapaianWhereInput[]
+    OR?: db_pencapaianWhereInput[]
+    NOT?: db_pencapaianWhereInput | db_pencapaianWhereInput[]
+    user_id?: StringFilter<"db_pencapaian"> | string
+    node_id?: StringFilter<"db_pencapaian"> | string
+    status?: EnumNodeStatusFilter<"db_pencapaian"> | $Enums.NodeStatus
+    completed_at?: DateTimeNullableFilter<"db_pencapaian"> | Date | string | null
+  }, "id" | "user_id_node_id">
+
+  export type db_pencapaianOrderByWithAggregationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    node_id?: SortOrder
+    status?: SortOrder
+    completed_at?: SortOrderInput | SortOrder
+    _count?: db_pencapaianCountOrderByAggregateInput
+    _max?: db_pencapaianMaxOrderByAggregateInput
+    _min?: db_pencapaianMinOrderByAggregateInput
+  }
+
+  export type db_pencapaianScalarWhereWithAggregatesInput = {
+    AND?: db_pencapaianScalarWhereWithAggregatesInput | db_pencapaianScalarWhereWithAggregatesInput[]
+    OR?: db_pencapaianScalarWhereWithAggregatesInput[]
+    NOT?: db_pencapaianScalarWhereWithAggregatesInput | db_pencapaianScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"db_pencapaian"> | string
+    user_id?: StringWithAggregatesFilter<"db_pencapaian"> | string
+    node_id?: StringWithAggregatesFilter<"db_pencapaian"> | string
+    status?: EnumNodeStatusWithAggregatesFilter<"db_pencapaian"> | $Enums.NodeStatus
+    completed_at?: DateTimeNullableWithAggregatesFilter<"db_pencapaian"> | Date | string | null
   }
 
   export type db_nodesCreateInput = {
@@ -3322,6 +5398,48 @@ export namespace Prisma {
     target_position?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type db_userCreateInput = {
+    id?: string
+    username: string
+    password: string
+  }
+
+  export type db_userUncheckedCreateInput = {
+    id?: string
+    username: string
+    password: string
+  }
+
+  export type db_userUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type db_userUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type db_userCreateManyInput = {
+    id?: string
+    username: string
+    password: string
+  }
+
+  export type db_userUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type db_userUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+  }
+
   export type db_edgesCreateInput = {
     id?: string
     source_id: string
@@ -3390,6 +5508,62 @@ export namespace Prisma {
     animated?: BoolFieldUpdateOperationsInput | boolean
     source_handle?: NullableStringFieldUpdateOperationsInput | string | null
     target_handle?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type db_pencapaianCreateInput = {
+    id?: string
+    user_id: string
+    node_id: string
+    status?: $Enums.NodeStatus
+    completed_at?: Date | string | null
+  }
+
+  export type db_pencapaianUncheckedCreateInput = {
+    id?: string
+    user_id: string
+    node_id: string
+    status?: $Enums.NodeStatus
+    completed_at?: Date | string | null
+  }
+
+  export type db_pencapaianUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    node_id?: StringFieldUpdateOperationsInput | string
+    status?: EnumNodeStatusFieldUpdateOperationsInput | $Enums.NodeStatus
+    completed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type db_pencapaianUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    node_id?: StringFieldUpdateOperationsInput | string
+    status?: EnumNodeStatusFieldUpdateOperationsInput | $Enums.NodeStatus
+    completed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type db_pencapaianCreateManyInput = {
+    id?: string
+    user_id: string
+    node_id: string
+    status?: $Enums.NodeStatus
+    completed_at?: Date | string | null
+  }
+
+  export type db_pencapaianUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    node_id?: StringFieldUpdateOperationsInput | string
+    status?: EnumNodeStatusFieldUpdateOperationsInput | $Enums.NodeStatus
+    completed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type db_pencapaianUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    node_id?: StringFieldUpdateOperationsInput | string
+    status?: EnumNodeStatusFieldUpdateOperationsInput | $Enums.NodeStatus
+    completed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -3604,6 +5778,30 @@ export namespace Prisma {
     _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
+  export type db_userOrderByRelevanceInput = {
+    fields: db_userOrderByRelevanceFieldEnum | db_userOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type db_userCountOrderByAggregateInput = {
+    id?: SortOrder
+    username?: SortOrder
+    password?: SortOrder
+  }
+
+  export type db_userMaxOrderByAggregateInput = {
+    id?: SortOrder
+    username?: SortOrder
+    password?: SortOrder
+  }
+
+  export type db_userMinOrderByAggregateInput = {
+    id?: SortOrder
+    username?: SortOrder
+    password?: SortOrder
+  }
+
   export type BoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
@@ -3651,6 +5849,83 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBoolFilter<$PrismaModel>
     _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type EnumNodeStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.NodeStatus | EnumNodeStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.NodeStatus[]
+    notIn?: $Enums.NodeStatus[]
+    not?: NestedEnumNodeStatusFilter<$PrismaModel> | $Enums.NodeStatus
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type db_pencapaianOrderByRelevanceInput = {
+    fields: db_pencapaianOrderByRelevanceFieldEnum | db_pencapaianOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type db_pencapaianUser_idNode_idCompoundUniqueInput = {
+    user_id: string
+    node_id: string
+  }
+
+  export type db_pencapaianCountOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    node_id?: SortOrder
+    status?: SortOrder
+    completed_at?: SortOrder
+  }
+
+  export type db_pencapaianMaxOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    node_id?: SortOrder
+    status?: SortOrder
+    completed_at?: SortOrder
+  }
+
+  export type db_pencapaianMinOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    node_id?: SortOrder
+    status?: SortOrder
+    completed_at?: SortOrder
+  }
+
+  export type EnumNodeStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.NodeStatus | EnumNodeStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.NodeStatus[]
+    notIn?: $Enums.NodeStatus[]
+    not?: NestedEnumNodeStatusWithAggregatesFilter<$PrismaModel> | $Enums.NodeStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumNodeStatusFilter<$PrismaModel>
+    _max?: NestedEnumNodeStatusFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type db_nodesCreateNestedManyWithoutParentInput = {
@@ -3729,6 +6004,14 @@ export namespace Prisma {
 
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
+  }
+
+  export type EnumNodeStatusFieldUpdateOperationsInput = {
+    set?: $Enums.NodeStatus
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -3880,6 +6163,48 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBoolFilter<$PrismaModel>
     _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type NestedEnumNodeStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.NodeStatus | EnumNodeStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.NodeStatus[]
+    notIn?: $Enums.NodeStatus[]
+    not?: NestedEnumNodeStatusFilter<$PrismaModel> | $Enums.NodeStatus
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedEnumNodeStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.NodeStatus | EnumNodeStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.NodeStatus[]
+    notIn?: $Enums.NodeStatus[]
+    not?: NestedEnumNodeStatusWithAggregatesFilter<$PrismaModel> | $Enums.NodeStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumNodeStatusFilter<$PrismaModel>
+    _max?: NestedEnumNodeStatusFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type db_nodesCreateWithoutParentInput = {

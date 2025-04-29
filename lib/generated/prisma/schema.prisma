@@ -24,6 +24,12 @@ model db_nodes {
   parent   db_nodes?  @relation("ParentChild", fields: [parent_id], references: [id])
 }
 
+model db_user {
+  id       String @id @default(cuid())
+  username String
+  password String
+}
+
 model db_edges {
   id            String  @id @default(cuid())
   source_id     String
@@ -32,4 +38,21 @@ model db_edges {
   animated      Boolean
   source_handle String?
   target_handle String?
+}
+
+enum NodeStatus {
+  DONE
+  IN_PROGRESS
+  SKIP
+  PENDING
+}
+
+model db_pencapaian {
+  id           String     @id @default(cuid())
+  user_id      String
+  node_id      String
+  status       NodeStatus @default(PENDING)
+  completed_at DateTime?
+
+  @@unique([user_id, node_id])
 }

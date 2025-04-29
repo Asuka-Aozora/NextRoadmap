@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model db_nodes {
+  id              String  @id @default(cuid())
+  materi          String
+  position_x      Int
+  position_y      Int
+  parent_id       String?
+  node_style      Json?
+  type            String?
+  source_position String?
+  target_position String?
+
+  // Relasi ke edges
+  children db_nodes[] @relation("ParentChild")
+  parent   db_nodes?  @relation("ParentChild", fields: [parent_id], references: [id])
+}
+
+model db_user {
+  id       String @id @default(cuid())
+  username String
+  password String
+}
+
+model db_edges {
+  id            String  @id @default(cuid())
+  source_id     String
+  target_id     String
+  type          String
+  animated      Boolean
+  source_handle String?
+  target_handle String?
+}
+
+model db_pencapaian {
+  id           String   @id @default(cuid())
+  user_id      String
+  node_id      String
+  completed_at DateTime @default(now())
+
+  @@unique([user_id, node_id]) // satu user hanya satu record per node
+}

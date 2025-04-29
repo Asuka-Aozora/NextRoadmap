@@ -1,14 +1,8 @@
 import { NextResponse } from "next/server";
+import { deleteCookie } from "cookies-next/client";
 
 export async function POST() {
-  try {
-    // untuk menghapus token di dengan postman
-    return NextResponse.json({ message: "Logout successful" }, { status: 200 });
-  } catch (error) {
-    console.error("Logout error:", error);
-    return NextResponse.json(
-      { error: "Internal Server Error" },
-      { status: 500 }
-    );
-  }
+  const response = NextResponse.json({ message: "Logout berhasil" });
+  deleteCookie("authToken", { response });
+  return response;
 }

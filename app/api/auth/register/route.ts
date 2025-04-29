@@ -1,13 +1,18 @@
+
 import { NextResponse } from "next/server";
-import { createConnection } from "@/lib/db";
+import { createConnection } from "@/app/lib/db";
 import bcrypt from "bcrypt";
 import { z } from "zod";
 
-const passwordSchema = z.string().min(8, {
-  message: "Password must be at least 8 characters long"
-}).regex(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, {
-  message: "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character"
-});
+const passwordSchema = z
+  .string()
+  .min(8, {
+    message: "Password must be at least 8 characters long",
+  })
+  .regex(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, {
+    message:
+      "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character",
+  });
 
 export async function POST(request: Request) {
   try {
@@ -25,7 +30,11 @@ export async function POST(request: Request) {
     const passwordValidation = passwordSchema.safeParse(password);
     if (!passwordValidation.success) {
       return NextResponse.json(
-        { error: passwordValidation.error.errors[0]?.message || "Invalid password format" },
+        {
+          error:
+            passwordValidation.error.errors[0]?.message ||
+            "Invalid password format",
+        },
         { status: 400 }
       );
     }
@@ -45,14 +54,14 @@ export async function POST(request: Request) {
 
     // Hash password
     const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);    
+    const hashedPassword = await bcrypt.hash(password, salt);
 
     // Simpan ke database
-    
-    await connection.query("INSERT INTO db_user (username, password) VALUES (?, ?)", [
-      username,
-      hashedPassword,
-    ]);
+
+    await connection.query(
+      "INSERT INTO db_user (username, password) VALUES (?, ?)",
+      [username, hashedPassword]
+    );
 
     return NextResponse.json(
       { message: "User registered successfully" },
