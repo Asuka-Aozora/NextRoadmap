@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import { EdgeDataFromDB, NodeDataFromDB } from "./types";
 import { useAuth } from "@/app/lib/context/AuthContext";
 import Opinion from "@/app/components/Opinion";
+import toast, { Toaster } from "react-hot-toast";
 
 const nodeTypes = {
   Internet,
@@ -40,16 +41,29 @@ type Edge = {
   type: string;
 };
 
-const Roadmap3 = () => {
+type Roadmap3Props = {
+  onProgressUpdate?: (done: number, total: number) => void;
+};
+
+const Roadmap3 = ({ onProgressUpdate }: Roadmap3Props) => {
   const [nodes, setNodes] = useState<Node[]>([]);
   const [edges, setEdges] = useState<Edge[]>([]);
   const [selectedNode, setSelectedNode] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState("PENDING");
   const { user } = useAuth();
 
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!user) {
+      return;
+    }
+    if (nodes.length > 0 && !loading) {
+      const total = nodes.length;
+      const done = nodes.filter((node) => node.data?.bg === "#22c55e").length;
+      onProgressUpdate?.(done, total);
+    }
     const fetchData = async () => {
       try {
         const [nodeRes, edgeRes, progressRes] = await Promise.all([
@@ -68,13 +82,13 @@ const Roadmap3 = () => {
 
         const nodesData = nodesJson.data ?? [];
         const edgesData = edgesJson.data ?? [];
-        const progressData = progressJson.data ?? []; // array of { node_id, status }
+        const progressData = progressJson.data ?? [];
 
         // Warna berdasarkan status
         const statusColorMap: Record<string, string> = {
           DONE: "#22c55e", // hijau
           IN_PROGRESS: "#eab308", // kuning
-          SKIP: "#000000", // hitam
+          SKIP: "#496b69", // hitam
           PENDING: "#d1d5db", // abu-abu default
         };
 
@@ -92,22 +106,27 @@ const Roadmap3 = () => {
         // mapping nodes
         const formattedNodes = nodesData.map((node: NodeDataFromDB) => {
           // Cari status dari progressData
-          const progress = progressData.find((p: { node_id: string; status: string }) => p.node_id === node.id);
+          const progress = progressData.find(
+            (p: { node_id: string; status: string }) => p.node_id === node.id
+          );
           const status = progress?.status || "PENDING";
+          const bgColor = statusColorMap[status];
+
+          const nodeStyle =
+            node.type === null ? { background: bgColor } : undefined;
 
           return {
             id: node.id,
-            type: node.type || "default",
+            type: node.type,
             position: {
               x: node.position_x,
               y: node.position_y,
             },
             data: {
               label: node.materi || "Untitled",
+              bg: statusColorMap[status],
             },
-            style: {
-              background: statusColorMap[status],
-            },
+            style: nodeStyle,
             sourcePosition: getValidPosition(node.source_position),
             targetPosition: getValidPosition(node.target_position),
           };
@@ -133,58 +152,62 @@ const Roadmap3 = () => {
       }
     };
 
-
     fetchData();
-  }, [user]);
+  }, [user, onProgressUpdate]);
 
   if (loading) {
     return <div className="p-4 text-center">Loading roadmap…</div>;
   }
 
-const onNodeClick = (event: React.MouseEvent, node: Node) => {
-  event.preventDefault();
-  setSelectedNode(node.id);
-  setIsModalOpen(true);
-};
+  const onNodeClick = (event: React.MouseEvent, node: Node) => {
+    event.preventDefault();
+    setSelectedNode(node.id);
+    setIsModalOpen(true);
+  };
 
-const handleSubmit = async () => {
-  if (!user || !selectedNode) {
-    alert("User atau node belum dipilih.");
-    return;
-  }
-
-  try {
-    const res = await fetch(`/api/pencapaian`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        user_id: user.userId,
-        node_id: selectedNode,
-      }),
-    });
-
-    const data = await res.json();
-
-    if (res.ok) {
-      alert("Progress berhasil disimpan!");
-      setIsModalOpen(false);
-    } else {
-      alert(data.message || "Gagal menyimpan progress.");
+  const handleSubmit = async () => {
+    if (!user || !selectedNode) {
+      alert("User atau node belum dipilih.");
+      return;
     }
-  } catch (error) {
-    console.error("Error:", error);
-    alert("Terjadi kesalahan.");
-  }
-};
+    setLoading(true);
 
+    try {
+      const res = await fetch(`/api/pencapaian`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          user_id: user?.userId,
+          node_id: selectedNode,
+          status: selectedStatus,
+        }),
+      });
 
+      if (!res.ok) throw new Error("Gagal update status");
+
+      const data = await res.json();
+      console.log("Update sukses:", data);
+
+      if (res.ok) {
+        toast.success("Progress berhasil disimpan!");
+        setIsModalOpen(false);
+      } else {
+        alert(data.message || "Gagal menyimpan progress.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Terjadi kesalahan.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
       <div style={{ width: "100%", height: "100vh" }}>
-      <Opinion />
+        <Opinion />
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -204,6 +227,25 @@ const handleSubmit = async () => {
             <p className="mb-6 text-gray-600 font-medium">
               Node ID: <span className="text-blue-500">{selectedNode}</span>
             </p>
+            <div className="mb-4">
+              <label
+                htmlFor="status"
+                className="block text-gray-700 font-medium mb-2"
+              >
+                Pilih Status Materi
+              </label>
+              <select
+                id="status"
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800"
+                value={selectedStatus}
+                onChange={(e) => setSelectedStatus(e.target.value)}
+              >
+                <option value="PENDING">Pending</option>
+                <option value="IN_PROGRESS">In Progress</option>
+                <option value="DONE">Done</option>
+                <option value="SKIP">Skip</option>
+              </select>
+            </div>
             <div className="flex justify-end gap-2">
               <button
                 className="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors"
@@ -230,6 +272,7 @@ const handleSubmit = async () => {
           </div>
         </div>
       )}
+      <Toaster />
     </>
   );
 };

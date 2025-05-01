@@ -6,12 +6,12 @@ type Props = {
   };
 };
 
+
 export const Internet = ({ data }: Props) => {
   return (
     <div
-      className={`rounded-2xl shadow-md py-4 px-6 text-sm font-semibold text-center ${
-        data.bg || "bg-gray-200"
-      }`}
+      className="rounded-2xl shadow-md py-4 px-6 text-sm font-semibold text-center"
+      style={{ backgroundColor: data.bg || "#d1d5db" }}
     >
       <Handle
         type="source"

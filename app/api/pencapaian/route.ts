@@ -44,3 +44,41 @@ export async function POST(request: Request) {
     );
   }
 }
+
+export async function PUT(request: Request) {
+  try {
+    const { user_id, node_id, status } = await request.json();
+    console.log("Received data:", { user_id, node_id, status });
+
+    if (!user_id || !node_id) {
+      return NextResponse.json(
+        { message: "user_id and node_id are required" },
+        { status: 400 }
+      );
+    }
+    
+    const updated = await prisma.db_pencapaian.upsert({
+      where: {
+        user_node: {
+          user_id,
+          node_id,
+        },
+      },
+      update: {
+        status,
+        completed_at: status === "DONE" ? new Date() : null,
+      },
+      create: {
+        user_id,
+        node_id,
+        status: status ?? "DONE",
+        completed_at: status === "DONE" ? new Date() : null,
+      },
+    });
+
+    return NextResponse.json({ message: "Berhasil disimpan", data: updated });
+  } catch (err) {
+    console.error("Error updating pencapaian:", err);
+    return NextResponse.json({ message: "Server error" }, { status: 500 });
+  }
+}

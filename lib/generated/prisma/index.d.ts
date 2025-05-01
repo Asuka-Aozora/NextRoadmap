@@ -5279,7 +5279,7 @@ export namespace Prisma {
 
   export type db_pencapaianWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    user_id_node_id?: db_pencapaianUser_idNode_idCompoundUniqueInput
+    user_node?: db_pencapaianUser_nodeCompoundUniqueInput
     AND?: db_pencapaianWhereInput | db_pencapaianWhereInput[]
     OR?: db_pencapaianWhereInput[]
     NOT?: db_pencapaianWhereInput | db_pencapaianWhereInput[]
@@ -5287,7 +5287,7 @@ export namespace Prisma {
     node_id?: StringFilter<"db_pencapaian"> | string
     status?: EnumNodeStatusFilter<"db_pencapaian"> | $Enums.NodeStatus
     completed_at?: DateTimeNullableFilter<"db_pencapaian"> | Date | string | null
-  }, "id" | "user_id_node_id">
+  }, "id" | "user_node">
 
   export type db_pencapaianOrderByWithAggregationInput = {
     id?: SortOrder
@@ -5875,7 +5875,7 @@ export namespace Prisma {
     search: string
   }
 
-  export type db_pencapaianUser_idNode_idCompoundUniqueInput = {
+  export type db_pencapaianUser_nodeCompoundUniqueInput = {
     user_id: string
     node_id: string
   }

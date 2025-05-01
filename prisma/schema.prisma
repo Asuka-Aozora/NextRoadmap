@@ -54,6 +54,6 @@ model db_pencapaian {
   status       NodeStatus @default(PENDING)  
   completed_at DateTime?
 
-  @@unique([user_id, node_id])
+  @@unique([user_id, node_id], name: "user_node")
 }
 
