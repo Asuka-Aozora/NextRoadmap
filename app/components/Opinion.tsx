@@ -17,10 +17,10 @@ const Opinion = () => {
           ></path>
         </svg>
         <span className="text-sm font-medium text-purple-600">
-          Personal Recommendation / Opinion
+          Roadmap by Azka
         </span>
       </div>
-      <div className="flex items-center space-x-2">
+      {/* <div className="flex items-center space-x-2">
         <svg
           className="w-4 h-4 text-green-500"
           fill="none"
@@ -57,7 +57,7 @@ const Opinion = () => {
         <span className="text-sm font-medium text-gray-600">
           Order not strict / Learn anytime
         </span>
-      </div>
+      </div> */}
     </div>
   );
 }

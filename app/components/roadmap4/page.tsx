@@ -98,11 +98,11 @@ type Edge = {
   type: string;
 };
 
-type Roadmap3Props = {
+type Roadmap4Props = {
   onProgressUpdate?: (done: number, total: number) => void;
 };
 
-const Roadmap3 = ({ onProgressUpdate }: Roadmap3Props) => {
+const Roadmap4 = ({ onProgressUpdate }: Roadmap4Props) => {
   const [nodes, setNodes] = useState<Node[]>([]);
   const [edges, setEdges] = useState<Edge[]>([]);
   const [selectedNode, setSelectedNode] = useState<string | null>(null);
@@ -336,4 +336,4 @@ const Roadmap3 = ({ onProgressUpdate }: Roadmap3Props) => {
   );
 };
 
-export default Roadmap3;
+export default Roadmap4;
