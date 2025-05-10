@@ -3,7 +3,7 @@ import { prisma } from "@/app/lib/prisma";
 
 export async function GET() {
   try {
-    const edges = await prisma.db_edges.findMany();
+    const edges = await prisma.db_edges2.findMany();
     return NextResponse.json({
       status: true,
       code: 200,

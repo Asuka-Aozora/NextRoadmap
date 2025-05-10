@@ -9,36 +9,37 @@ import {
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import {
-  CSS,
-  HTML,
   Internet,
-  JS,
-  PaF,
-  PM,
-  TEXT,
+  PaL,
   VCS,
-  VCS_Hosting,
-  WCSS,
-  CSSArch,
-  CSSPre,
-  BTools,
-  LaF,
-  ModuleB,
-  Test,
+  RPS,
+  RDatabase,
+  LearnAPIs,
   Auth,
-  WSB,
-  WebC,
-  TypeC,
-  SSR,
-  GraphQL,
-  PWAs,
+  Caching,
+  WS,
+  Testing,
+  CC,
+  MaD,
   box,
-  box2,
-  PBP,
-  SSG,
-  Mobile,
-  Desktop,
-} from "@/app/components/CustomNodes";
+  APISec,
+  SD,
+  SDA,
+  AP,
+  DesignDevPrin,
+  CV,
+  MB,
+  SE,
+  WebS,
+  RTD,
+  GraphQL,
+  NoSQL,
+  KV,
+  BFS,
+  MS,
+  DU,
+  BIK,
+} from "@/app/components/CustomNodes2";
 import { useEffect, useState } from "react";
 import { EdgeDataFromDB, NodeDataFromDB } from "./types";
 import { useAuth } from "@/app/lib/context/AuthContext";
@@ -47,34 +48,35 @@ import toast, { Toaster } from "react-hot-toast";
 
 const nodeTypes = {
   Internet,
-  HTML,
-  CSS,
-  JS,
+  PaL,
   VCS,
-  VCS_Hosting,
-  PM,
-  TEXT,
-  PaF,
-  WCSS,
-  CSSArch,
-  CSSPre,
-  BTools,
-  LaF,
-  ModuleB,
-  Test,
+  RPS,
+  RDatabase,
+  LearnAPIs,
   Auth,
-  WSB,
-  WebC,
-  TypeC,
-  SSR,
-  GraphQL,
-  PWAs,
+  Caching,
+  WS,
+  Testing,
+  CC,
+  MaD,
   box,
-  box2,
-  PBP,
-  SSG,
-  Mobile,
-  Desktop,
+  APISec,
+  SD,
+  SDA,
+  AP,
+  DesignDevPrin,
+  CV,
+  MB,
+  SE,
+  WebS,
+  RTD,
+  GraphQL,
+  NoSQL,
+  KV,
+  BFS,
+  MS,
+  DU,
+  BIK,
 };
 
 const edgeTypes = {
@@ -88,7 +90,12 @@ type Node = {
   type: string;
   data: { label: string; bg?: string };
   position: { x: number; y: number };
-  style?: { background: string; color?: string; padding?: string; width?: string };
+  style?: {
+    background: string;
+    color?: string;
+    padding?: string;
+    width?: string;
+  };
 };
 
 type Edge = {
@@ -124,8 +131,8 @@ const Roadmap4 = ({ onProgressUpdate }: Roadmap4Props) => {
     const fetchData = async () => {
       try {
         const [nodeRes, edgeRes, progressRes] = await Promise.all([
-          fetch("/api/data/nodes"),
-          fetch("/api/data/edges"),
+          fetch("/api/data2/nodes"),
+          fetch("/api/data2/edges"),
           fetch(`/api/pencapaian/${user?.userId}`),
         ]);
 
@@ -171,7 +178,6 @@ const Roadmap4 = ({ onProgressUpdate }: Roadmap4Props) => {
 
           const nodeStyle =
             node.type === null ? { background: bgColor } : undefined;
-
 
           return {
             id: node.id,

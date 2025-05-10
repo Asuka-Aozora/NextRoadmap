@@ -3,12 +3,12 @@ import { prisma } from "@/app/lib/prisma";
 
 export async function GET() {
   try {
-    const nodes = await prisma.db_nodes2.findMany();
+    const edges = await prisma.db_edges.findMany();
     return NextResponse.json({
       status: true,
       code: 200,
-      message: "Nodes fetched successfully",
-      data: nodes,
+      message: "Edges fetched successfully",
+      data: edges,
     });
   } catch (error) {
     console.log(error);
@@ -16,7 +16,7 @@ export async function GET() {
       {
         status: false,
         code: 500,
-        message: "Gagal ambil nodes",
+        message: "Gagal ambil edges",
         errors: null,
       },
       { status: 500 }

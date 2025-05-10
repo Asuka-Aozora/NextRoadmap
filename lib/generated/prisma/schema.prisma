@@ -24,6 +24,22 @@ model db_nodes {
   parent   db_nodes?  @relation("ParentChild", fields: [parent_id], references: [id])
 }
 
+model db_nodes2 {
+  id              String  @id @default(cuid())
+  materi          String
+  position_x      Int
+  position_y      Int
+  parent_id       String?
+  node_style      Json?
+  type            String?
+  source_position String?
+  target_position String?
+
+  // Relasi ke edges
+  children db_nodes2[] @relation("ParentChild")
+  parent   db_nodes2?  @relation("ParentChild", fields: [parent_id], references: [id])
+}
+
 model db_user {
   id       String @id @default(cuid())
   username String
@@ -31,6 +47,16 @@ model db_user {
 }
 
 model db_edges {
+  id            String  @id @default(cuid())
+  source_id     String
+  target_id     String
+  type          String
+  animated      Boolean
+  source_handle String?
+  target_handle String?
+}
+
+model db_edges2 {
   id            String  @id @default(cuid())
   source_id     String
   target_id     String

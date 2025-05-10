@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { createConnection } from "@/app/lib/db";
-// import { setCookie } from "cookies-next";
 
 type User = {
   id: number;
@@ -13,51 +12,48 @@ type User = {
 const JWT_SECRET = process.env.JWT_SECRET || "secret_key";
 
 export async function POST(request: Request) {
-  const body = await request.json();
+  const { username, password } = await request.json();
 
-  // Validasi input
-  if (!body.username || !body.password) {
+  // 1) Client‑side validation
+  if (!username || !password) {
     return NextResponse.json(
-      { error: "Username dan password wajib diisi" },
+      { success: false, error: "Username dan password wajib diisi" },
       { status: 400 }
     );
   }
 
   try {
-    // Cari user
+    // 2) Cari user di database
     const pool = await createConnection();
-    const [users] = await pool.query(
+    const [rows] = await pool.query(
       "SELECT * FROM db_user WHERE username = ?",
-      [body.username]
+      [username]
     );
-    const user = (users as User[])[0];
-    if (!user) {
+    const user = (rows as User[])[0];
+
+    if (!user || !(await bcrypt.compare(password, user.password))) {
       return NextResponse.json(
-        { error: "Invalid credentials" },
+        { success: false, error: "Username atau password salah" },
         { status: 401 }
       );
     }
 
-    // Cek user dan password
-    if (!user || !(await bcrypt.compare(body.password, user.password))) {
-      return NextResponse.json(
-        { error: "Username atau password salah" },
-        { status: 401 }
-      );
-    }
-
-    // Buat JWT token
+    // 3) Generate JWT
     const token = jwt.sign(
       { userId: user.id, username: user.username },
       JWT_SECRET,
       { expiresIn: "1d" }
     );
 
-    // Set cookie
-    const response = NextResponse.json({
-      message: "Login berhasil",
-      user: { id: user.id, username: user.username },
-    });
+    // 4) Kirim response dengan cookies + standard body
+    const response = NextResponse.json(
+      {
+        success: true,
+        message: "Login berhasil",
+        data: { user: { id: user.id, username: user.username } },
+      },
+      { status: 200 }
+    );
 
     response.cookies.set({
       name: "authToken",
@@ -68,82 +64,21 @@ export async function POST(request: Request) {
       sameSite: "lax",
       path: "/",
     });
-    
-    response.cookies.set("x-user-id", user.id.toString(), {
+    response.cookies.set("x-user-id", String(user.id), {
       maxAge: 60 * 60 * 24,
       path: "/",
     });
-
     response.cookies.set("x-username", user.username, {
       maxAge: 60 * 60 * 24,
       path: "/",
     });
+
     return response;
-  } catch (error) {
-    console.error("Login error:", error);
+  } catch (err) {
+    console.error("Login error:", err);
     return NextResponse.json(
-      { error: "Terjadi kesalahan server" },
+      { success: false, error: "Terjadi kesalahan server" },
       { status: 500 }
     );
   }
 }
-
-// import { NextResponse } from "next/server";
-// import { createConnection } from "@/app/lib/db";
-// import bcrypt from "bcrypt";
-// import jwt from "jsonwebtoken";
-
-// type User = {
-//   id: number;
-//   username: string;
-//   password: string;
-// };
-
-// export async function POST(request: Request) {
-//   try {
-//     const { username, password } = await request.json(); // terima data login dari client
-
-//     // Cari user
-//     const pool = await createConnection(); // hubungkan ke database
-//     const [users] = await pool.query(
-//       "SELECT * FROM db_user WHERE username = ?",
-//       [username]
-//     );
-//     const user = (users as User[])[0];
-//     if (!user) {
-//       return NextResponse.json(
-//         { error: "Invalid credentials" },
-//         { status: 401 }
-//       );
-//     }
-
-//     // Validasi Input
-//     if (!username || !password || password.length < 6) {
-//       return NextResponse.json({ error: "Invalid input" }, { status: 400 });
-//     }
-
-//     // Verifikasi password
-//     const validPassword = await bcrypt.compare(password, user.password); // bandingkaan password yg dikirim dgn hash di database
-//     if (!validPassword) {
-//       return NextResponse.json(
-//         { error: "Invalid credentials" },
-//         { status: 401 }
-//       );
-//     }
-
-//     // Buat JWT token
-//     const token = jwt.sign(
-//       { userId: user.id, username: user.username },
-//       process.env.JWT_SECRET || "default-secret-key",
-//       { expiresIn: "1h" }
-//     );
-
-//     return NextResponse.json({ token }, { status: 200 }); // sukses
-//   } catch (error) {
-//     console.error("Login error:", error);
-//     return NextResponse.json(
-//       { error: "Internal Server Error" },
-//       { status: 500 }
-//     );
-//   }
-// }

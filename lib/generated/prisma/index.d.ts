@@ -19,6 +19,11 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type db_nodes = $Result.DefaultSelection<Prisma.$db_nodesPayload>
 /**
+ * Model db_nodes2
+ * 
+ */
+export type db_nodes2 = $Result.DefaultSelection<Prisma.$db_nodes2Payload>
+/**
  * Model db_user
  * 
  */
@@ -28,6 +33,11 @@ export type db_user = $Result.DefaultSelection<Prisma.$db_userPayload>
  * 
  */
 export type db_edges = $Result.DefaultSelection<Prisma.$db_edgesPayload>
+/**
+ * Model db_edges2
+ * 
+ */
+export type db_edges2 = $Result.DefaultSelection<Prisma.$db_edges2Payload>
 /**
  * Model db_pencapaian
  * 
@@ -189,6 +199,16 @@ export class PrismaClient<
   get db_nodes(): Prisma.db_nodesDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.db_nodes2`: Exposes CRUD operations for the **db_nodes2** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Db_nodes2s
+    * const db_nodes2s = await prisma.db_nodes2.findMany()
+    * ```
+    */
+  get db_nodes2(): Prisma.db_nodes2Delegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.db_user`: Exposes CRUD operations for the **db_user** model.
     * Example usage:
     * ```ts
@@ -207,6 +227,16 @@ export class PrismaClient<
     * ```
     */
   get db_edges(): Prisma.db_edgesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.db_edges2`: Exposes CRUD operations for the **db_edges2** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Db_edges2s
+    * const db_edges2s = await prisma.db_edges2.findMany()
+    * ```
+    */
+  get db_edges2(): Prisma.db_edges2Delegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.db_pencapaian`: Exposes CRUD operations for the **db_pencapaian** model.
@@ -658,8 +688,10 @@ export namespace Prisma {
 
   export const ModelName: {
     db_nodes: 'db_nodes',
+    db_nodes2: 'db_nodes2',
     db_user: 'db_user',
     db_edges: 'db_edges',
+    db_edges2: 'db_edges2',
     db_pencapaian: 'db_pencapaian'
   };
 
@@ -679,7 +711,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "db_nodes" | "db_user" | "db_edges" | "db_pencapaian"
+      modelProps: "db_nodes" | "db_nodes2" | "db_user" | "db_edges" | "db_edges2" | "db_pencapaian"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -746,6 +778,72 @@ export namespace Prisma {
           count: {
             args: Prisma.db_nodesCountArgs<ExtArgs>
             result: $Utils.Optional<Db_nodesCountAggregateOutputType> | number
+          }
+        }
+      }
+      db_nodes2: {
+        payload: Prisma.$db_nodes2Payload<ExtArgs>
+        fields: Prisma.db_nodes2FieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.db_nodes2FindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_nodes2Payload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.db_nodes2FindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_nodes2Payload>
+          }
+          findFirst: {
+            args: Prisma.db_nodes2FindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_nodes2Payload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.db_nodes2FindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_nodes2Payload>
+          }
+          findMany: {
+            args: Prisma.db_nodes2FindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_nodes2Payload>[]
+          }
+          create: {
+            args: Prisma.db_nodes2CreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_nodes2Payload>
+          }
+          createMany: {
+            args: Prisma.db_nodes2CreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.db_nodes2DeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_nodes2Payload>
+          }
+          update: {
+            args: Prisma.db_nodes2UpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_nodes2Payload>
+          }
+          deleteMany: {
+            args: Prisma.db_nodes2DeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.db_nodes2UpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.db_nodes2UpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_nodes2Payload>
+          }
+          aggregate: {
+            args: Prisma.Db_nodes2AggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDb_nodes2>
+          }
+          groupBy: {
+            args: Prisma.db_nodes2GroupByArgs<ExtArgs>
+            result: $Utils.Optional<Db_nodes2GroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.db_nodes2CountArgs<ExtArgs>
+            result: $Utils.Optional<Db_nodes2CountAggregateOutputType> | number
           }
         }
       }
@@ -878,6 +976,72 @@ export namespace Prisma {
           count: {
             args: Prisma.db_edgesCountArgs<ExtArgs>
             result: $Utils.Optional<Db_edgesCountAggregateOutputType> | number
+          }
+        }
+      }
+      db_edges2: {
+        payload: Prisma.$db_edges2Payload<ExtArgs>
+        fields: Prisma.db_edges2FieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.db_edges2FindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_edges2Payload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.db_edges2FindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_edges2Payload>
+          }
+          findFirst: {
+            args: Prisma.db_edges2FindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_edges2Payload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.db_edges2FindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_edges2Payload>
+          }
+          findMany: {
+            args: Prisma.db_edges2FindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_edges2Payload>[]
+          }
+          create: {
+            args: Prisma.db_edges2CreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_edges2Payload>
+          }
+          createMany: {
+            args: Prisma.db_edges2CreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.db_edges2DeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_edges2Payload>
+          }
+          update: {
+            args: Prisma.db_edges2UpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_edges2Payload>
+          }
+          deleteMany: {
+            args: Prisma.db_edges2DeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.db_edges2UpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.db_edges2UpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$db_edges2Payload>
+          }
+          aggregate: {
+            args: Prisma.Db_edges2AggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDb_edges2>
+          }
+          groupBy: {
+            args: Prisma.db_edges2GroupByArgs<ExtArgs>
+            result: $Utils.Optional<Db_edges2GroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.db_edges2CountArgs<ExtArgs>
+            result: $Utils.Optional<Db_edges2CountAggregateOutputType> | number
           }
         }
       }
@@ -1032,8 +1196,10 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     db_nodes?: db_nodesOmit
+    db_nodes2?: db_nodes2Omit
     db_user?: db_userOmit
     db_edges?: db_edgesOmit
+    db_edges2?: db_edges2Omit
     db_pencapaian?: db_pencapaianOmit
   }
 
@@ -1152,6 +1318,37 @@ export namespace Prisma {
    */
   export type Db_nodesCountOutputTypeCountChildrenArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: db_nodesWhereInput
+  }
+
+
+  /**
+   * Count Type Db_nodes2CountOutputType
+   */
+
+  export type Db_nodes2CountOutputType = {
+    children: number
+  }
+
+  export type Db_nodes2CountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    children?: boolean | Db_nodes2CountOutputTypeCountChildrenArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Db_nodes2CountOutputType without action
+   */
+  export type Db_nodes2CountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Db_nodes2CountOutputType
+     */
+    select?: Db_nodes2CountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Db_nodes2CountOutputType without action
+   */
+  export type Db_nodes2CountOutputTypeCountChildrenArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: db_nodes2WhereInput
   }
 
 
@@ -2212,6 +2409,1062 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: db_nodesInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model db_nodes2
+   */
+
+  export type AggregateDb_nodes2 = {
+    _count: Db_nodes2CountAggregateOutputType | null
+    _avg: Db_nodes2AvgAggregateOutputType | null
+    _sum: Db_nodes2SumAggregateOutputType | null
+    _min: Db_nodes2MinAggregateOutputType | null
+    _max: Db_nodes2MaxAggregateOutputType | null
+  }
+
+  export type Db_nodes2AvgAggregateOutputType = {
+    position_x: number | null
+    position_y: number | null
+  }
+
+  export type Db_nodes2SumAggregateOutputType = {
+    position_x: number | null
+    position_y: number | null
+  }
+
+  export type Db_nodes2MinAggregateOutputType = {
+    id: string | null
+    materi: string | null
+    position_x: number | null
+    position_y: number | null
+    parent_id: string | null
+    type: string | null
+    source_position: string | null
+    target_position: string | null
+  }
+
+  export type Db_nodes2MaxAggregateOutputType = {
+    id: string | null
+    materi: string | null
+    position_x: number | null
+    position_y: number | null
+    parent_id: string | null
+    type: string | null
+    source_position: string | null
+    target_position: string | null
+  }
+
+  export type Db_nodes2CountAggregateOutputType = {
+    id: number
+    materi: number
+    position_x: number
+    position_y: number
+    parent_id: number
+    node_style: number
+    type: number
+    source_position: number
+    target_position: number
+    _all: number
+  }
+
+
+  export type Db_nodes2AvgAggregateInputType = {
+    position_x?: true
+    position_y?: true
+  }
+
+  export type Db_nodes2SumAggregateInputType = {
+    position_x?: true
+    position_y?: true
+  }
+
+  export type Db_nodes2MinAggregateInputType = {
+    id?: true
+    materi?: true
+    position_x?: true
+    position_y?: true
+    parent_id?: true
+    type?: true
+    source_position?: true
+    target_position?: true
+  }
+
+  export type Db_nodes2MaxAggregateInputType = {
+    id?: true
+    materi?: true
+    position_x?: true
+    position_y?: true
+    parent_id?: true
+    type?: true
+    source_position?: true
+    target_position?: true
+  }
+
+  export type Db_nodes2CountAggregateInputType = {
+    id?: true
+    materi?: true
+    position_x?: true
+    position_y?: true
+    parent_id?: true
+    node_style?: true
+    type?: true
+    source_position?: true
+    target_position?: true
+    _all?: true
+  }
+
+  export type Db_nodes2AggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which db_nodes2 to aggregate.
+     */
+    where?: db_nodes2WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of db_nodes2s to fetch.
+     */
+    orderBy?: db_nodes2OrderByWithRelationInput | db_nodes2OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: db_nodes2WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` db_nodes2s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` db_nodes2s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned db_nodes2s
+    **/
+    _count?: true | Db_nodes2CountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Db_nodes2AvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Db_nodes2SumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Db_nodes2MinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Db_nodes2MaxAggregateInputType
+  }
+
+  export type GetDb_nodes2AggregateType<T extends Db_nodes2AggregateArgs> = {
+        [P in keyof T & keyof AggregateDb_nodes2]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDb_nodes2[P]>
+      : GetScalarType<T[P], AggregateDb_nodes2[P]>
+  }
+
+
+
+
+  export type db_nodes2GroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: db_nodes2WhereInput
+    orderBy?: db_nodes2OrderByWithAggregationInput | db_nodes2OrderByWithAggregationInput[]
+    by: Db_nodes2ScalarFieldEnum[] | Db_nodes2ScalarFieldEnum
+    having?: db_nodes2ScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Db_nodes2CountAggregateInputType | true
+    _avg?: Db_nodes2AvgAggregateInputType
+    _sum?: Db_nodes2SumAggregateInputType
+    _min?: Db_nodes2MinAggregateInputType
+    _max?: Db_nodes2MaxAggregateInputType
+  }
+
+  export type Db_nodes2GroupByOutputType = {
+    id: string
+    materi: string
+    position_x: number
+    position_y: number
+    parent_id: string | null
+    node_style: JsonValue | null
+    type: string | null
+    source_position: string | null
+    target_position: string | null
+    _count: Db_nodes2CountAggregateOutputType | null
+    _avg: Db_nodes2AvgAggregateOutputType | null
+    _sum: Db_nodes2SumAggregateOutputType | null
+    _min: Db_nodes2MinAggregateOutputType | null
+    _max: Db_nodes2MaxAggregateOutputType | null
+  }
+
+  type GetDb_nodes2GroupByPayload<T extends db_nodes2GroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Db_nodes2GroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Db_nodes2GroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Db_nodes2GroupByOutputType[P]>
+            : GetScalarType<T[P], Db_nodes2GroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type db_nodes2Select<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    materi?: boolean
+    position_x?: boolean
+    position_y?: boolean
+    parent_id?: boolean
+    node_style?: boolean
+    type?: boolean
+    source_position?: boolean
+    target_position?: boolean
+    children?: boolean | db_nodes2$childrenArgs<ExtArgs>
+    parent?: boolean | db_nodes2$parentArgs<ExtArgs>
+    _count?: boolean | Db_nodes2CountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["db_nodes2"]>
+
+
+
+  export type db_nodes2SelectScalar = {
+    id?: boolean
+    materi?: boolean
+    position_x?: boolean
+    position_y?: boolean
+    parent_id?: boolean
+    node_style?: boolean
+    type?: boolean
+    source_position?: boolean
+    target_position?: boolean
+  }
+
+  export type db_nodes2Omit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "materi" | "position_x" | "position_y" | "parent_id" | "node_style" | "type" | "source_position" | "target_position", ExtArgs["result"]["db_nodes2"]>
+  export type db_nodes2Include<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    children?: boolean | db_nodes2$childrenArgs<ExtArgs>
+    parent?: boolean | db_nodes2$parentArgs<ExtArgs>
+    _count?: boolean | Db_nodes2CountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $db_nodes2Payload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "db_nodes2"
+    objects: {
+      children: Prisma.$db_nodes2Payload<ExtArgs>[]
+      parent: Prisma.$db_nodes2Payload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      materi: string
+      position_x: number
+      position_y: number
+      parent_id: string | null
+      node_style: Prisma.JsonValue | null
+      type: string | null
+      source_position: string | null
+      target_position: string | null
+    }, ExtArgs["result"]["db_nodes2"]>
+    composites: {}
+  }
+
+  type db_nodes2GetPayload<S extends boolean | null | undefined | db_nodes2DefaultArgs> = $Result.GetResult<Prisma.$db_nodes2Payload, S>
+
+  type db_nodes2CountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<db_nodes2FindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Db_nodes2CountAggregateInputType | true
+    }
+
+  export interface db_nodes2Delegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['db_nodes2'], meta: { name: 'db_nodes2' } }
+    /**
+     * Find zero or one Db_nodes2 that matches the filter.
+     * @param {db_nodes2FindUniqueArgs} args - Arguments to find a Db_nodes2
+     * @example
+     * // Get one Db_nodes2
+     * const db_nodes2 = await prisma.db_nodes2.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends db_nodes2FindUniqueArgs>(args: SelectSubset<T, db_nodes2FindUniqueArgs<ExtArgs>>): Prisma__db_nodes2Client<$Result.GetResult<Prisma.$db_nodes2Payload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Db_nodes2 that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {db_nodes2FindUniqueOrThrowArgs} args - Arguments to find a Db_nodes2
+     * @example
+     * // Get one Db_nodes2
+     * const db_nodes2 = await prisma.db_nodes2.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends db_nodes2FindUniqueOrThrowArgs>(args: SelectSubset<T, db_nodes2FindUniqueOrThrowArgs<ExtArgs>>): Prisma__db_nodes2Client<$Result.GetResult<Prisma.$db_nodes2Payload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Db_nodes2 that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_nodes2FindFirstArgs} args - Arguments to find a Db_nodes2
+     * @example
+     * // Get one Db_nodes2
+     * const db_nodes2 = await prisma.db_nodes2.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends db_nodes2FindFirstArgs>(args?: SelectSubset<T, db_nodes2FindFirstArgs<ExtArgs>>): Prisma__db_nodes2Client<$Result.GetResult<Prisma.$db_nodes2Payload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Db_nodes2 that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_nodes2FindFirstOrThrowArgs} args - Arguments to find a Db_nodes2
+     * @example
+     * // Get one Db_nodes2
+     * const db_nodes2 = await prisma.db_nodes2.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends db_nodes2FindFirstOrThrowArgs>(args?: SelectSubset<T, db_nodes2FindFirstOrThrowArgs<ExtArgs>>): Prisma__db_nodes2Client<$Result.GetResult<Prisma.$db_nodes2Payload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Db_nodes2s that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_nodes2FindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Db_nodes2s
+     * const db_nodes2s = await prisma.db_nodes2.findMany()
+     * 
+     * // Get first 10 Db_nodes2s
+     * const db_nodes2s = await prisma.db_nodes2.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const db_nodes2WithIdOnly = await prisma.db_nodes2.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends db_nodes2FindManyArgs>(args?: SelectSubset<T, db_nodes2FindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$db_nodes2Payload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Db_nodes2.
+     * @param {db_nodes2CreateArgs} args - Arguments to create a Db_nodes2.
+     * @example
+     * // Create one Db_nodes2
+     * const Db_nodes2 = await prisma.db_nodes2.create({
+     *   data: {
+     *     // ... data to create a Db_nodes2
+     *   }
+     * })
+     * 
+     */
+    create<T extends db_nodes2CreateArgs>(args: SelectSubset<T, db_nodes2CreateArgs<ExtArgs>>): Prisma__db_nodes2Client<$Result.GetResult<Prisma.$db_nodes2Payload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Db_nodes2s.
+     * @param {db_nodes2CreateManyArgs} args - Arguments to create many Db_nodes2s.
+     * @example
+     * // Create many Db_nodes2s
+     * const db_nodes2 = await prisma.db_nodes2.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends db_nodes2CreateManyArgs>(args?: SelectSubset<T, db_nodes2CreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Db_nodes2.
+     * @param {db_nodes2DeleteArgs} args - Arguments to delete one Db_nodes2.
+     * @example
+     * // Delete one Db_nodes2
+     * const Db_nodes2 = await prisma.db_nodes2.delete({
+     *   where: {
+     *     // ... filter to delete one Db_nodes2
+     *   }
+     * })
+     * 
+     */
+    delete<T extends db_nodes2DeleteArgs>(args: SelectSubset<T, db_nodes2DeleteArgs<ExtArgs>>): Prisma__db_nodes2Client<$Result.GetResult<Prisma.$db_nodes2Payload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Db_nodes2.
+     * @param {db_nodes2UpdateArgs} args - Arguments to update one Db_nodes2.
+     * @example
+     * // Update one Db_nodes2
+     * const db_nodes2 = await prisma.db_nodes2.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends db_nodes2UpdateArgs>(args: SelectSubset<T, db_nodes2UpdateArgs<ExtArgs>>): Prisma__db_nodes2Client<$Result.GetResult<Prisma.$db_nodes2Payload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Db_nodes2s.
+     * @param {db_nodes2DeleteManyArgs} args - Arguments to filter Db_nodes2s to delete.
+     * @example
+     * // Delete a few Db_nodes2s
+     * const { count } = await prisma.db_nodes2.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends db_nodes2DeleteManyArgs>(args?: SelectSubset<T, db_nodes2DeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Db_nodes2s.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_nodes2UpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Db_nodes2s
+     * const db_nodes2 = await prisma.db_nodes2.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends db_nodes2UpdateManyArgs>(args: SelectSubset<T, db_nodes2UpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Db_nodes2.
+     * @param {db_nodes2UpsertArgs} args - Arguments to update or create a Db_nodes2.
+     * @example
+     * // Update or create a Db_nodes2
+     * const db_nodes2 = await prisma.db_nodes2.upsert({
+     *   create: {
+     *     // ... data to create a Db_nodes2
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Db_nodes2 we want to update
+     *   }
+     * })
+     */
+    upsert<T extends db_nodes2UpsertArgs>(args: SelectSubset<T, db_nodes2UpsertArgs<ExtArgs>>): Prisma__db_nodes2Client<$Result.GetResult<Prisma.$db_nodes2Payload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Db_nodes2s.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_nodes2CountArgs} args - Arguments to filter Db_nodes2s to count.
+     * @example
+     * // Count the number of Db_nodes2s
+     * const count = await prisma.db_nodes2.count({
+     *   where: {
+     *     // ... the filter for the Db_nodes2s we want to count
+     *   }
+     * })
+    **/
+    count<T extends db_nodes2CountArgs>(
+      args?: Subset<T, db_nodes2CountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Db_nodes2CountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Db_nodes2.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Db_nodes2AggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Db_nodes2AggregateArgs>(args: Subset<T, Db_nodes2AggregateArgs>): Prisma.PrismaPromise<GetDb_nodes2AggregateType<T>>
+
+    /**
+     * Group by Db_nodes2.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_nodes2GroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends db_nodes2GroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: db_nodes2GroupByArgs['orderBy'] }
+        : { orderBy?: db_nodes2GroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, db_nodes2GroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDb_nodes2GroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the db_nodes2 model
+   */
+  readonly fields: db_nodes2FieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for db_nodes2.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__db_nodes2Client<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    children<T extends db_nodes2$childrenArgs<ExtArgs> = {}>(args?: Subset<T, db_nodes2$childrenArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$db_nodes2Payload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    parent<T extends db_nodes2$parentArgs<ExtArgs> = {}>(args?: Subset<T, db_nodes2$parentArgs<ExtArgs>>): Prisma__db_nodes2Client<$Result.GetResult<Prisma.$db_nodes2Payload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the db_nodes2 model
+   */
+  interface db_nodes2FieldRefs {
+    readonly id: FieldRef<"db_nodes2", 'String'>
+    readonly materi: FieldRef<"db_nodes2", 'String'>
+    readonly position_x: FieldRef<"db_nodes2", 'Int'>
+    readonly position_y: FieldRef<"db_nodes2", 'Int'>
+    readonly parent_id: FieldRef<"db_nodes2", 'String'>
+    readonly node_style: FieldRef<"db_nodes2", 'Json'>
+    readonly type: FieldRef<"db_nodes2", 'String'>
+    readonly source_position: FieldRef<"db_nodes2", 'String'>
+    readonly target_position: FieldRef<"db_nodes2", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * db_nodes2 findUnique
+   */
+  export type db_nodes2FindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_nodes2
+     */
+    select?: db_nodes2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_nodes2
+     */
+    omit?: db_nodes2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: db_nodes2Include<ExtArgs> | null
+    /**
+     * Filter, which db_nodes2 to fetch.
+     */
+    where: db_nodes2WhereUniqueInput
+  }
+
+  /**
+   * db_nodes2 findUniqueOrThrow
+   */
+  export type db_nodes2FindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_nodes2
+     */
+    select?: db_nodes2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_nodes2
+     */
+    omit?: db_nodes2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: db_nodes2Include<ExtArgs> | null
+    /**
+     * Filter, which db_nodes2 to fetch.
+     */
+    where: db_nodes2WhereUniqueInput
+  }
+
+  /**
+   * db_nodes2 findFirst
+   */
+  export type db_nodes2FindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_nodes2
+     */
+    select?: db_nodes2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_nodes2
+     */
+    omit?: db_nodes2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: db_nodes2Include<ExtArgs> | null
+    /**
+     * Filter, which db_nodes2 to fetch.
+     */
+    where?: db_nodes2WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of db_nodes2s to fetch.
+     */
+    orderBy?: db_nodes2OrderByWithRelationInput | db_nodes2OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for db_nodes2s.
+     */
+    cursor?: db_nodes2WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` db_nodes2s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` db_nodes2s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of db_nodes2s.
+     */
+    distinct?: Db_nodes2ScalarFieldEnum | Db_nodes2ScalarFieldEnum[]
+  }
+
+  /**
+   * db_nodes2 findFirstOrThrow
+   */
+  export type db_nodes2FindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_nodes2
+     */
+    select?: db_nodes2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_nodes2
+     */
+    omit?: db_nodes2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: db_nodes2Include<ExtArgs> | null
+    /**
+     * Filter, which db_nodes2 to fetch.
+     */
+    where?: db_nodes2WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of db_nodes2s to fetch.
+     */
+    orderBy?: db_nodes2OrderByWithRelationInput | db_nodes2OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for db_nodes2s.
+     */
+    cursor?: db_nodes2WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` db_nodes2s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` db_nodes2s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of db_nodes2s.
+     */
+    distinct?: Db_nodes2ScalarFieldEnum | Db_nodes2ScalarFieldEnum[]
+  }
+
+  /**
+   * db_nodes2 findMany
+   */
+  export type db_nodes2FindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_nodes2
+     */
+    select?: db_nodes2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_nodes2
+     */
+    omit?: db_nodes2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: db_nodes2Include<ExtArgs> | null
+    /**
+     * Filter, which db_nodes2s to fetch.
+     */
+    where?: db_nodes2WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of db_nodes2s to fetch.
+     */
+    orderBy?: db_nodes2OrderByWithRelationInput | db_nodes2OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing db_nodes2s.
+     */
+    cursor?: db_nodes2WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` db_nodes2s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` db_nodes2s.
+     */
+    skip?: number
+    distinct?: Db_nodes2ScalarFieldEnum | Db_nodes2ScalarFieldEnum[]
+  }
+
+  /**
+   * db_nodes2 create
+   */
+  export type db_nodes2CreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_nodes2
+     */
+    select?: db_nodes2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_nodes2
+     */
+    omit?: db_nodes2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: db_nodes2Include<ExtArgs> | null
+    /**
+     * The data needed to create a db_nodes2.
+     */
+    data: XOR<db_nodes2CreateInput, db_nodes2UncheckedCreateInput>
+  }
+
+  /**
+   * db_nodes2 createMany
+   */
+  export type db_nodes2CreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many db_nodes2s.
+     */
+    data: db_nodes2CreateManyInput | db_nodes2CreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * db_nodes2 update
+   */
+  export type db_nodes2UpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_nodes2
+     */
+    select?: db_nodes2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_nodes2
+     */
+    omit?: db_nodes2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: db_nodes2Include<ExtArgs> | null
+    /**
+     * The data needed to update a db_nodes2.
+     */
+    data: XOR<db_nodes2UpdateInput, db_nodes2UncheckedUpdateInput>
+    /**
+     * Choose, which db_nodes2 to update.
+     */
+    where: db_nodes2WhereUniqueInput
+  }
+
+  /**
+   * db_nodes2 updateMany
+   */
+  export type db_nodes2UpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update db_nodes2s.
+     */
+    data: XOR<db_nodes2UpdateManyMutationInput, db_nodes2UncheckedUpdateManyInput>
+    /**
+     * Filter which db_nodes2s to update
+     */
+    where?: db_nodes2WhereInput
+    /**
+     * Limit how many db_nodes2s to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * db_nodes2 upsert
+   */
+  export type db_nodes2UpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_nodes2
+     */
+    select?: db_nodes2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_nodes2
+     */
+    omit?: db_nodes2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: db_nodes2Include<ExtArgs> | null
+    /**
+     * The filter to search for the db_nodes2 to update in case it exists.
+     */
+    where: db_nodes2WhereUniqueInput
+    /**
+     * In case the db_nodes2 found by the `where` argument doesn't exist, create a new db_nodes2 with this data.
+     */
+    create: XOR<db_nodes2CreateInput, db_nodes2UncheckedCreateInput>
+    /**
+     * In case the db_nodes2 was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<db_nodes2UpdateInput, db_nodes2UncheckedUpdateInput>
+  }
+
+  /**
+   * db_nodes2 delete
+   */
+  export type db_nodes2DeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_nodes2
+     */
+    select?: db_nodes2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_nodes2
+     */
+    omit?: db_nodes2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: db_nodes2Include<ExtArgs> | null
+    /**
+     * Filter which db_nodes2 to delete.
+     */
+    where: db_nodes2WhereUniqueInput
+  }
+
+  /**
+   * db_nodes2 deleteMany
+   */
+  export type db_nodes2DeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which db_nodes2s to delete
+     */
+    where?: db_nodes2WhereInput
+    /**
+     * Limit how many db_nodes2s to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * db_nodes2.children
+   */
+  export type db_nodes2$childrenArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_nodes2
+     */
+    select?: db_nodes2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_nodes2
+     */
+    omit?: db_nodes2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: db_nodes2Include<ExtArgs> | null
+    where?: db_nodes2WhereInput
+    orderBy?: db_nodes2OrderByWithRelationInput | db_nodes2OrderByWithRelationInput[]
+    cursor?: db_nodes2WhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Db_nodes2ScalarFieldEnum | Db_nodes2ScalarFieldEnum[]
+  }
+
+  /**
+   * db_nodes2.parent
+   */
+  export type db_nodes2$parentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_nodes2
+     */
+    select?: db_nodes2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_nodes2
+     */
+    omit?: db_nodes2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: db_nodes2Include<ExtArgs> | null
+    where?: db_nodes2WhereInput
+  }
+
+  /**
+   * db_nodes2 without action
+   */
+  export type db_nodes2DefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_nodes2
+     */
+    select?: db_nodes2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_nodes2
+     */
+    omit?: db_nodes2Omit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: db_nodes2Include<ExtArgs> | null
   }
 
 
@@ -3980,6 +5233,910 @@ export namespace Prisma {
 
 
   /**
+   * Model db_edges2
+   */
+
+  export type AggregateDb_edges2 = {
+    _count: Db_edges2CountAggregateOutputType | null
+    _min: Db_edges2MinAggregateOutputType | null
+    _max: Db_edges2MaxAggregateOutputType | null
+  }
+
+  export type Db_edges2MinAggregateOutputType = {
+    id: string | null
+    source_id: string | null
+    target_id: string | null
+    type: string | null
+    animated: boolean | null
+    source_handle: string | null
+    target_handle: string | null
+  }
+
+  export type Db_edges2MaxAggregateOutputType = {
+    id: string | null
+    source_id: string | null
+    target_id: string | null
+    type: string | null
+    animated: boolean | null
+    source_handle: string | null
+    target_handle: string | null
+  }
+
+  export type Db_edges2CountAggregateOutputType = {
+    id: number
+    source_id: number
+    target_id: number
+    type: number
+    animated: number
+    source_handle: number
+    target_handle: number
+    _all: number
+  }
+
+
+  export type Db_edges2MinAggregateInputType = {
+    id?: true
+    source_id?: true
+    target_id?: true
+    type?: true
+    animated?: true
+    source_handle?: true
+    target_handle?: true
+  }
+
+  export type Db_edges2MaxAggregateInputType = {
+    id?: true
+    source_id?: true
+    target_id?: true
+    type?: true
+    animated?: true
+    source_handle?: true
+    target_handle?: true
+  }
+
+  export type Db_edges2CountAggregateInputType = {
+    id?: true
+    source_id?: true
+    target_id?: true
+    type?: true
+    animated?: true
+    source_handle?: true
+    target_handle?: true
+    _all?: true
+  }
+
+  export type Db_edges2AggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which db_edges2 to aggregate.
+     */
+    where?: db_edges2WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of db_edges2s to fetch.
+     */
+    orderBy?: db_edges2OrderByWithRelationInput | db_edges2OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: db_edges2WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` db_edges2s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` db_edges2s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned db_edges2s
+    **/
+    _count?: true | Db_edges2CountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Db_edges2MinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Db_edges2MaxAggregateInputType
+  }
+
+  export type GetDb_edges2AggregateType<T extends Db_edges2AggregateArgs> = {
+        [P in keyof T & keyof AggregateDb_edges2]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDb_edges2[P]>
+      : GetScalarType<T[P], AggregateDb_edges2[P]>
+  }
+
+
+
+
+  export type db_edges2GroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: db_edges2WhereInput
+    orderBy?: db_edges2OrderByWithAggregationInput | db_edges2OrderByWithAggregationInput[]
+    by: Db_edges2ScalarFieldEnum[] | Db_edges2ScalarFieldEnum
+    having?: db_edges2ScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Db_edges2CountAggregateInputType | true
+    _min?: Db_edges2MinAggregateInputType
+    _max?: Db_edges2MaxAggregateInputType
+  }
+
+  export type Db_edges2GroupByOutputType = {
+    id: string
+    source_id: string
+    target_id: string
+    type: string
+    animated: boolean
+    source_handle: string | null
+    target_handle: string | null
+    _count: Db_edges2CountAggregateOutputType | null
+    _min: Db_edges2MinAggregateOutputType | null
+    _max: Db_edges2MaxAggregateOutputType | null
+  }
+
+  type GetDb_edges2GroupByPayload<T extends db_edges2GroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Db_edges2GroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Db_edges2GroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Db_edges2GroupByOutputType[P]>
+            : GetScalarType<T[P], Db_edges2GroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type db_edges2Select<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    source_id?: boolean
+    target_id?: boolean
+    type?: boolean
+    animated?: boolean
+    source_handle?: boolean
+    target_handle?: boolean
+  }, ExtArgs["result"]["db_edges2"]>
+
+
+
+  export type db_edges2SelectScalar = {
+    id?: boolean
+    source_id?: boolean
+    target_id?: boolean
+    type?: boolean
+    animated?: boolean
+    source_handle?: boolean
+    target_handle?: boolean
+  }
+
+  export type db_edges2Omit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "source_id" | "target_id" | "type" | "animated" | "source_handle" | "target_handle", ExtArgs["result"]["db_edges2"]>
+
+  export type $db_edges2Payload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "db_edges2"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      source_id: string
+      target_id: string
+      type: string
+      animated: boolean
+      source_handle: string | null
+      target_handle: string | null
+    }, ExtArgs["result"]["db_edges2"]>
+    composites: {}
+  }
+
+  type db_edges2GetPayload<S extends boolean | null | undefined | db_edges2DefaultArgs> = $Result.GetResult<Prisma.$db_edges2Payload, S>
+
+  type db_edges2CountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<db_edges2FindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Db_edges2CountAggregateInputType | true
+    }
+
+  export interface db_edges2Delegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['db_edges2'], meta: { name: 'db_edges2' } }
+    /**
+     * Find zero or one Db_edges2 that matches the filter.
+     * @param {db_edges2FindUniqueArgs} args - Arguments to find a Db_edges2
+     * @example
+     * // Get one Db_edges2
+     * const db_edges2 = await prisma.db_edges2.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends db_edges2FindUniqueArgs>(args: SelectSubset<T, db_edges2FindUniqueArgs<ExtArgs>>): Prisma__db_edges2Client<$Result.GetResult<Prisma.$db_edges2Payload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Db_edges2 that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {db_edges2FindUniqueOrThrowArgs} args - Arguments to find a Db_edges2
+     * @example
+     * // Get one Db_edges2
+     * const db_edges2 = await prisma.db_edges2.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends db_edges2FindUniqueOrThrowArgs>(args: SelectSubset<T, db_edges2FindUniqueOrThrowArgs<ExtArgs>>): Prisma__db_edges2Client<$Result.GetResult<Prisma.$db_edges2Payload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Db_edges2 that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_edges2FindFirstArgs} args - Arguments to find a Db_edges2
+     * @example
+     * // Get one Db_edges2
+     * const db_edges2 = await prisma.db_edges2.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends db_edges2FindFirstArgs>(args?: SelectSubset<T, db_edges2FindFirstArgs<ExtArgs>>): Prisma__db_edges2Client<$Result.GetResult<Prisma.$db_edges2Payload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Db_edges2 that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_edges2FindFirstOrThrowArgs} args - Arguments to find a Db_edges2
+     * @example
+     * // Get one Db_edges2
+     * const db_edges2 = await prisma.db_edges2.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends db_edges2FindFirstOrThrowArgs>(args?: SelectSubset<T, db_edges2FindFirstOrThrowArgs<ExtArgs>>): Prisma__db_edges2Client<$Result.GetResult<Prisma.$db_edges2Payload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Db_edges2s that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_edges2FindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Db_edges2s
+     * const db_edges2s = await prisma.db_edges2.findMany()
+     * 
+     * // Get first 10 Db_edges2s
+     * const db_edges2s = await prisma.db_edges2.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const db_edges2WithIdOnly = await prisma.db_edges2.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends db_edges2FindManyArgs>(args?: SelectSubset<T, db_edges2FindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$db_edges2Payload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Db_edges2.
+     * @param {db_edges2CreateArgs} args - Arguments to create a Db_edges2.
+     * @example
+     * // Create one Db_edges2
+     * const Db_edges2 = await prisma.db_edges2.create({
+     *   data: {
+     *     // ... data to create a Db_edges2
+     *   }
+     * })
+     * 
+     */
+    create<T extends db_edges2CreateArgs>(args: SelectSubset<T, db_edges2CreateArgs<ExtArgs>>): Prisma__db_edges2Client<$Result.GetResult<Prisma.$db_edges2Payload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Db_edges2s.
+     * @param {db_edges2CreateManyArgs} args - Arguments to create many Db_edges2s.
+     * @example
+     * // Create many Db_edges2s
+     * const db_edges2 = await prisma.db_edges2.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends db_edges2CreateManyArgs>(args?: SelectSubset<T, db_edges2CreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Db_edges2.
+     * @param {db_edges2DeleteArgs} args - Arguments to delete one Db_edges2.
+     * @example
+     * // Delete one Db_edges2
+     * const Db_edges2 = await prisma.db_edges2.delete({
+     *   where: {
+     *     // ... filter to delete one Db_edges2
+     *   }
+     * })
+     * 
+     */
+    delete<T extends db_edges2DeleteArgs>(args: SelectSubset<T, db_edges2DeleteArgs<ExtArgs>>): Prisma__db_edges2Client<$Result.GetResult<Prisma.$db_edges2Payload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Db_edges2.
+     * @param {db_edges2UpdateArgs} args - Arguments to update one Db_edges2.
+     * @example
+     * // Update one Db_edges2
+     * const db_edges2 = await prisma.db_edges2.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends db_edges2UpdateArgs>(args: SelectSubset<T, db_edges2UpdateArgs<ExtArgs>>): Prisma__db_edges2Client<$Result.GetResult<Prisma.$db_edges2Payload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Db_edges2s.
+     * @param {db_edges2DeleteManyArgs} args - Arguments to filter Db_edges2s to delete.
+     * @example
+     * // Delete a few Db_edges2s
+     * const { count } = await prisma.db_edges2.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends db_edges2DeleteManyArgs>(args?: SelectSubset<T, db_edges2DeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Db_edges2s.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_edges2UpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Db_edges2s
+     * const db_edges2 = await prisma.db_edges2.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends db_edges2UpdateManyArgs>(args: SelectSubset<T, db_edges2UpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Db_edges2.
+     * @param {db_edges2UpsertArgs} args - Arguments to update or create a Db_edges2.
+     * @example
+     * // Update or create a Db_edges2
+     * const db_edges2 = await prisma.db_edges2.upsert({
+     *   create: {
+     *     // ... data to create a Db_edges2
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Db_edges2 we want to update
+     *   }
+     * })
+     */
+    upsert<T extends db_edges2UpsertArgs>(args: SelectSubset<T, db_edges2UpsertArgs<ExtArgs>>): Prisma__db_edges2Client<$Result.GetResult<Prisma.$db_edges2Payload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Db_edges2s.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_edges2CountArgs} args - Arguments to filter Db_edges2s to count.
+     * @example
+     * // Count the number of Db_edges2s
+     * const count = await prisma.db_edges2.count({
+     *   where: {
+     *     // ... the filter for the Db_edges2s we want to count
+     *   }
+     * })
+    **/
+    count<T extends db_edges2CountArgs>(
+      args?: Subset<T, db_edges2CountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Db_edges2CountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Db_edges2.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Db_edges2AggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Db_edges2AggregateArgs>(args: Subset<T, Db_edges2AggregateArgs>): Prisma.PrismaPromise<GetDb_edges2AggregateType<T>>
+
+    /**
+     * Group by Db_edges2.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {db_edges2GroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends db_edges2GroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: db_edges2GroupByArgs['orderBy'] }
+        : { orderBy?: db_edges2GroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, db_edges2GroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDb_edges2GroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the db_edges2 model
+   */
+  readonly fields: db_edges2FieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for db_edges2.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__db_edges2Client<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the db_edges2 model
+   */
+  interface db_edges2FieldRefs {
+    readonly id: FieldRef<"db_edges2", 'String'>
+    readonly source_id: FieldRef<"db_edges2", 'String'>
+    readonly target_id: FieldRef<"db_edges2", 'String'>
+    readonly type: FieldRef<"db_edges2", 'String'>
+    readonly animated: FieldRef<"db_edges2", 'Boolean'>
+    readonly source_handle: FieldRef<"db_edges2", 'String'>
+    readonly target_handle: FieldRef<"db_edges2", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * db_edges2 findUnique
+   */
+  export type db_edges2FindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_edges2
+     */
+    select?: db_edges2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_edges2
+     */
+    omit?: db_edges2Omit<ExtArgs> | null
+    /**
+     * Filter, which db_edges2 to fetch.
+     */
+    where: db_edges2WhereUniqueInput
+  }
+
+  /**
+   * db_edges2 findUniqueOrThrow
+   */
+  export type db_edges2FindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_edges2
+     */
+    select?: db_edges2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_edges2
+     */
+    omit?: db_edges2Omit<ExtArgs> | null
+    /**
+     * Filter, which db_edges2 to fetch.
+     */
+    where: db_edges2WhereUniqueInput
+  }
+
+  /**
+   * db_edges2 findFirst
+   */
+  export type db_edges2FindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_edges2
+     */
+    select?: db_edges2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_edges2
+     */
+    omit?: db_edges2Omit<ExtArgs> | null
+    /**
+     * Filter, which db_edges2 to fetch.
+     */
+    where?: db_edges2WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of db_edges2s to fetch.
+     */
+    orderBy?: db_edges2OrderByWithRelationInput | db_edges2OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for db_edges2s.
+     */
+    cursor?: db_edges2WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` db_edges2s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` db_edges2s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of db_edges2s.
+     */
+    distinct?: Db_edges2ScalarFieldEnum | Db_edges2ScalarFieldEnum[]
+  }
+
+  /**
+   * db_edges2 findFirstOrThrow
+   */
+  export type db_edges2FindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_edges2
+     */
+    select?: db_edges2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_edges2
+     */
+    omit?: db_edges2Omit<ExtArgs> | null
+    /**
+     * Filter, which db_edges2 to fetch.
+     */
+    where?: db_edges2WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of db_edges2s to fetch.
+     */
+    orderBy?: db_edges2OrderByWithRelationInput | db_edges2OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for db_edges2s.
+     */
+    cursor?: db_edges2WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` db_edges2s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` db_edges2s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of db_edges2s.
+     */
+    distinct?: Db_edges2ScalarFieldEnum | Db_edges2ScalarFieldEnum[]
+  }
+
+  /**
+   * db_edges2 findMany
+   */
+  export type db_edges2FindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_edges2
+     */
+    select?: db_edges2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_edges2
+     */
+    omit?: db_edges2Omit<ExtArgs> | null
+    /**
+     * Filter, which db_edges2s to fetch.
+     */
+    where?: db_edges2WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of db_edges2s to fetch.
+     */
+    orderBy?: db_edges2OrderByWithRelationInput | db_edges2OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing db_edges2s.
+     */
+    cursor?: db_edges2WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` db_edges2s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` db_edges2s.
+     */
+    skip?: number
+    distinct?: Db_edges2ScalarFieldEnum | Db_edges2ScalarFieldEnum[]
+  }
+
+  /**
+   * db_edges2 create
+   */
+  export type db_edges2CreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_edges2
+     */
+    select?: db_edges2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_edges2
+     */
+    omit?: db_edges2Omit<ExtArgs> | null
+    /**
+     * The data needed to create a db_edges2.
+     */
+    data: XOR<db_edges2CreateInput, db_edges2UncheckedCreateInput>
+  }
+
+  /**
+   * db_edges2 createMany
+   */
+  export type db_edges2CreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many db_edges2s.
+     */
+    data: db_edges2CreateManyInput | db_edges2CreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * db_edges2 update
+   */
+  export type db_edges2UpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_edges2
+     */
+    select?: db_edges2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_edges2
+     */
+    omit?: db_edges2Omit<ExtArgs> | null
+    /**
+     * The data needed to update a db_edges2.
+     */
+    data: XOR<db_edges2UpdateInput, db_edges2UncheckedUpdateInput>
+    /**
+     * Choose, which db_edges2 to update.
+     */
+    where: db_edges2WhereUniqueInput
+  }
+
+  /**
+   * db_edges2 updateMany
+   */
+  export type db_edges2UpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update db_edges2s.
+     */
+    data: XOR<db_edges2UpdateManyMutationInput, db_edges2UncheckedUpdateManyInput>
+    /**
+     * Filter which db_edges2s to update
+     */
+    where?: db_edges2WhereInput
+    /**
+     * Limit how many db_edges2s to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * db_edges2 upsert
+   */
+  export type db_edges2UpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_edges2
+     */
+    select?: db_edges2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_edges2
+     */
+    omit?: db_edges2Omit<ExtArgs> | null
+    /**
+     * The filter to search for the db_edges2 to update in case it exists.
+     */
+    where: db_edges2WhereUniqueInput
+    /**
+     * In case the db_edges2 found by the `where` argument doesn't exist, create a new db_edges2 with this data.
+     */
+    create: XOR<db_edges2CreateInput, db_edges2UncheckedCreateInput>
+    /**
+     * In case the db_edges2 was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<db_edges2UpdateInput, db_edges2UncheckedUpdateInput>
+  }
+
+  /**
+   * db_edges2 delete
+   */
+  export type db_edges2DeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_edges2
+     */
+    select?: db_edges2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_edges2
+     */
+    omit?: db_edges2Omit<ExtArgs> | null
+    /**
+     * Filter which db_edges2 to delete.
+     */
+    where: db_edges2WhereUniqueInput
+  }
+
+  /**
+   * db_edges2 deleteMany
+   */
+  export type db_edges2DeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which db_edges2s to delete
+     */
+    where?: db_edges2WhereInput
+    /**
+     * Limit how many db_edges2s to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * db_edges2 without action
+   */
+  export type db_edges2DefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the db_edges2
+     */
+    select?: db_edges2Select<ExtArgs> | null
+    /**
+     * Omit specific fields from the db_edges2
+     */
+    omit?: db_edges2Omit<ExtArgs> | null
+  }
+
+
+  /**
    * Model db_pencapaian
    */
 
@@ -4890,6 +7047,21 @@ export namespace Prisma {
   export type Db_nodesScalarFieldEnum = (typeof Db_nodesScalarFieldEnum)[keyof typeof Db_nodesScalarFieldEnum]
 
 
+  export const Db_nodes2ScalarFieldEnum: {
+    id: 'id',
+    materi: 'materi',
+    position_x: 'position_x',
+    position_y: 'position_y',
+    parent_id: 'parent_id',
+    node_style: 'node_style',
+    type: 'type',
+    source_position: 'source_position',
+    target_position: 'target_position'
+  };
+
+  export type Db_nodes2ScalarFieldEnum = (typeof Db_nodes2ScalarFieldEnum)[keyof typeof Db_nodes2ScalarFieldEnum]
+
+
   export const Db_userScalarFieldEnum: {
     id: 'id',
     username: 'username',
@@ -4910,6 +7082,19 @@ export namespace Prisma {
   };
 
   export type Db_edgesScalarFieldEnum = (typeof Db_edgesScalarFieldEnum)[keyof typeof Db_edgesScalarFieldEnum]
+
+
+  export const Db_edges2ScalarFieldEnum: {
+    id: 'id',
+    source_id: 'source_id',
+    target_id: 'target_id',
+    type: 'type',
+    animated: 'animated',
+    source_handle: 'source_handle',
+    target_handle: 'target_handle'
+  };
+
+  export type Db_edges2ScalarFieldEnum = (typeof Db_edges2ScalarFieldEnum)[keyof typeof Db_edges2ScalarFieldEnum]
 
 
   export const Db_pencapaianScalarFieldEnum: {
@@ -4976,6 +7161,18 @@ export namespace Prisma {
   export type db_nodesOrderByRelevanceFieldEnum = (typeof db_nodesOrderByRelevanceFieldEnum)[keyof typeof db_nodesOrderByRelevanceFieldEnum]
 
 
+  export const db_nodes2OrderByRelevanceFieldEnum: {
+    id: 'id',
+    materi: 'materi',
+    parent_id: 'parent_id',
+    type: 'type',
+    source_position: 'source_position',
+    target_position: 'target_position'
+  };
+
+  export type db_nodes2OrderByRelevanceFieldEnum = (typeof db_nodes2OrderByRelevanceFieldEnum)[keyof typeof db_nodes2OrderByRelevanceFieldEnum]
+
+
   export const db_userOrderByRelevanceFieldEnum: {
     id: 'id',
     username: 'username',
@@ -4995,6 +7192,18 @@ export namespace Prisma {
   };
 
   export type db_edgesOrderByRelevanceFieldEnum = (typeof db_edgesOrderByRelevanceFieldEnum)[keyof typeof db_edgesOrderByRelevanceFieldEnum]
+
+
+  export const db_edges2OrderByRelevanceFieldEnum: {
+    id: 'id',
+    source_id: 'source_id',
+    target_id: 'target_id',
+    type: 'type',
+    source_handle: 'source_handle',
+    target_handle: 'target_handle'
+  };
+
+  export type db_edges2OrderByRelevanceFieldEnum = (typeof db_edges2OrderByRelevanceFieldEnum)[keyof typeof db_edges2OrderByRelevanceFieldEnum]
 
 
   export const db_pencapaianOrderByRelevanceFieldEnum: {
@@ -5151,6 +7360,87 @@ export namespace Prisma {
     target_position?: StringNullableWithAggregatesFilter<"db_nodes"> | string | null
   }
 
+  export type db_nodes2WhereInput = {
+    AND?: db_nodes2WhereInput | db_nodes2WhereInput[]
+    OR?: db_nodes2WhereInput[]
+    NOT?: db_nodes2WhereInput | db_nodes2WhereInput[]
+    id?: StringFilter<"db_nodes2"> | string
+    materi?: StringFilter<"db_nodes2"> | string
+    position_x?: IntFilter<"db_nodes2"> | number
+    position_y?: IntFilter<"db_nodes2"> | number
+    parent_id?: StringNullableFilter<"db_nodes2"> | string | null
+    node_style?: JsonNullableFilter<"db_nodes2">
+    type?: StringNullableFilter<"db_nodes2"> | string | null
+    source_position?: StringNullableFilter<"db_nodes2"> | string | null
+    target_position?: StringNullableFilter<"db_nodes2"> | string | null
+    children?: Db_nodes2ListRelationFilter
+    parent?: XOR<Db_nodes2NullableScalarRelationFilter, db_nodes2WhereInput> | null
+  }
+
+  export type db_nodes2OrderByWithRelationInput = {
+    id?: SortOrder
+    materi?: SortOrder
+    position_x?: SortOrder
+    position_y?: SortOrder
+    parent_id?: SortOrderInput | SortOrder
+    node_style?: SortOrderInput | SortOrder
+    type?: SortOrderInput | SortOrder
+    source_position?: SortOrderInput | SortOrder
+    target_position?: SortOrderInput | SortOrder
+    children?: db_nodes2OrderByRelationAggregateInput
+    parent?: db_nodes2OrderByWithRelationInput
+    _relevance?: db_nodes2OrderByRelevanceInput
+  }
+
+  export type db_nodes2WhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: db_nodes2WhereInput | db_nodes2WhereInput[]
+    OR?: db_nodes2WhereInput[]
+    NOT?: db_nodes2WhereInput | db_nodes2WhereInput[]
+    materi?: StringFilter<"db_nodes2"> | string
+    position_x?: IntFilter<"db_nodes2"> | number
+    position_y?: IntFilter<"db_nodes2"> | number
+    parent_id?: StringNullableFilter<"db_nodes2"> | string | null
+    node_style?: JsonNullableFilter<"db_nodes2">
+    type?: StringNullableFilter<"db_nodes2"> | string | null
+    source_position?: StringNullableFilter<"db_nodes2"> | string | null
+    target_position?: StringNullableFilter<"db_nodes2"> | string | null
+    children?: Db_nodes2ListRelationFilter
+    parent?: XOR<Db_nodes2NullableScalarRelationFilter, db_nodes2WhereInput> | null
+  }, "id">
+
+  export type db_nodes2OrderByWithAggregationInput = {
+    id?: SortOrder
+    materi?: SortOrder
+    position_x?: SortOrder
+    position_y?: SortOrder
+    parent_id?: SortOrderInput | SortOrder
+    node_style?: SortOrderInput | SortOrder
+    type?: SortOrderInput | SortOrder
+    source_position?: SortOrderInput | SortOrder
+    target_position?: SortOrderInput | SortOrder
+    _count?: db_nodes2CountOrderByAggregateInput
+    _avg?: db_nodes2AvgOrderByAggregateInput
+    _max?: db_nodes2MaxOrderByAggregateInput
+    _min?: db_nodes2MinOrderByAggregateInput
+    _sum?: db_nodes2SumOrderByAggregateInput
+  }
+
+  export type db_nodes2ScalarWhereWithAggregatesInput = {
+    AND?: db_nodes2ScalarWhereWithAggregatesInput | db_nodes2ScalarWhereWithAggregatesInput[]
+    OR?: db_nodes2ScalarWhereWithAggregatesInput[]
+    NOT?: db_nodes2ScalarWhereWithAggregatesInput | db_nodes2ScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"db_nodes2"> | string
+    materi?: StringWithAggregatesFilter<"db_nodes2"> | string
+    position_x?: IntWithAggregatesFilter<"db_nodes2"> | number
+    position_y?: IntWithAggregatesFilter<"db_nodes2"> | number
+    parent_id?: StringNullableWithAggregatesFilter<"db_nodes2"> | string | null
+    node_style?: JsonNullableWithAggregatesFilter<"db_nodes2">
+    type?: StringNullableWithAggregatesFilter<"db_nodes2"> | string | null
+    source_position?: StringNullableWithAggregatesFilter<"db_nodes2"> | string | null
+    target_position?: StringNullableWithAggregatesFilter<"db_nodes2"> | string | null
+  }
+
   export type db_userWhereInput = {
     AND?: db_userWhereInput | db_userWhereInput[]
     OR?: db_userWhereInput[]
@@ -5255,6 +7545,69 @@ export namespace Prisma {
     animated?: BoolWithAggregatesFilter<"db_edges"> | boolean
     source_handle?: StringNullableWithAggregatesFilter<"db_edges"> | string | null
     target_handle?: StringNullableWithAggregatesFilter<"db_edges"> | string | null
+  }
+
+  export type db_edges2WhereInput = {
+    AND?: db_edges2WhereInput | db_edges2WhereInput[]
+    OR?: db_edges2WhereInput[]
+    NOT?: db_edges2WhereInput | db_edges2WhereInput[]
+    id?: StringFilter<"db_edges2"> | string
+    source_id?: StringFilter<"db_edges2"> | string
+    target_id?: StringFilter<"db_edges2"> | string
+    type?: StringFilter<"db_edges2"> | string
+    animated?: BoolFilter<"db_edges2"> | boolean
+    source_handle?: StringNullableFilter<"db_edges2"> | string | null
+    target_handle?: StringNullableFilter<"db_edges2"> | string | null
+  }
+
+  export type db_edges2OrderByWithRelationInput = {
+    id?: SortOrder
+    source_id?: SortOrder
+    target_id?: SortOrder
+    type?: SortOrder
+    animated?: SortOrder
+    source_handle?: SortOrderInput | SortOrder
+    target_handle?: SortOrderInput | SortOrder
+    _relevance?: db_edges2OrderByRelevanceInput
+  }
+
+  export type db_edges2WhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: db_edges2WhereInput | db_edges2WhereInput[]
+    OR?: db_edges2WhereInput[]
+    NOT?: db_edges2WhereInput | db_edges2WhereInput[]
+    source_id?: StringFilter<"db_edges2"> | string
+    target_id?: StringFilter<"db_edges2"> | string
+    type?: StringFilter<"db_edges2"> | string
+    animated?: BoolFilter<"db_edges2"> | boolean
+    source_handle?: StringNullableFilter<"db_edges2"> | string | null
+    target_handle?: StringNullableFilter<"db_edges2"> | string | null
+  }, "id">
+
+  export type db_edges2OrderByWithAggregationInput = {
+    id?: SortOrder
+    source_id?: SortOrder
+    target_id?: SortOrder
+    type?: SortOrder
+    animated?: SortOrder
+    source_handle?: SortOrderInput | SortOrder
+    target_handle?: SortOrderInput | SortOrder
+    _count?: db_edges2CountOrderByAggregateInput
+    _max?: db_edges2MaxOrderByAggregateInput
+    _min?: db_edges2MinOrderByAggregateInput
+  }
+
+  export type db_edges2ScalarWhereWithAggregatesInput = {
+    AND?: db_edges2ScalarWhereWithAggregatesInput | db_edges2ScalarWhereWithAggregatesInput[]
+    OR?: db_edges2ScalarWhereWithAggregatesInput[]
+    NOT?: db_edges2ScalarWhereWithAggregatesInput | db_edges2ScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"db_edges2"> | string
+    source_id?: StringWithAggregatesFilter<"db_edges2"> | string
+    target_id?: StringWithAggregatesFilter<"db_edges2"> | string
+    type?: StringWithAggregatesFilter<"db_edges2"> | string
+    animated?: BoolWithAggregatesFilter<"db_edges2"> | boolean
+    source_handle?: StringNullableWithAggregatesFilter<"db_edges2"> | string | null
+    target_handle?: StringNullableWithAggregatesFilter<"db_edges2"> | string | null
   }
 
   export type db_pencapaianWhereInput = {
@@ -5398,6 +7751,93 @@ export namespace Prisma {
     target_position?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type db_nodes2CreateInput = {
+    id?: string
+    materi: string
+    position_x: number
+    position_y: number
+    node_style?: NullableJsonNullValueInput | InputJsonValue
+    type?: string | null
+    source_position?: string | null
+    target_position?: string | null
+    children?: db_nodes2CreateNestedManyWithoutParentInput
+    parent?: db_nodes2CreateNestedOneWithoutChildrenInput
+  }
+
+  export type db_nodes2UncheckedCreateInput = {
+    id?: string
+    materi: string
+    position_x: number
+    position_y: number
+    parent_id?: string | null
+    node_style?: NullableJsonNullValueInput | InputJsonValue
+    type?: string | null
+    source_position?: string | null
+    target_position?: string | null
+    children?: db_nodes2UncheckedCreateNestedManyWithoutParentInput
+  }
+
+  export type db_nodes2UpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    materi?: StringFieldUpdateOperationsInput | string
+    position_x?: IntFieldUpdateOperationsInput | number
+    position_y?: IntFieldUpdateOperationsInput | number
+    node_style?: NullableJsonNullValueInput | InputJsonValue
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    source_position?: NullableStringFieldUpdateOperationsInput | string | null
+    target_position?: NullableStringFieldUpdateOperationsInput | string | null
+    children?: db_nodes2UpdateManyWithoutParentNestedInput
+    parent?: db_nodes2UpdateOneWithoutChildrenNestedInput
+  }
+
+  export type db_nodes2UncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    materi?: StringFieldUpdateOperationsInput | string
+    position_x?: IntFieldUpdateOperationsInput | number
+    position_y?: IntFieldUpdateOperationsInput | number
+    parent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    node_style?: NullableJsonNullValueInput | InputJsonValue
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    source_position?: NullableStringFieldUpdateOperationsInput | string | null
+    target_position?: NullableStringFieldUpdateOperationsInput | string | null
+    children?: db_nodes2UncheckedUpdateManyWithoutParentNestedInput
+  }
+
+  export type db_nodes2CreateManyInput = {
+    id?: string
+    materi: string
+    position_x: number
+    position_y: number
+    parent_id?: string | null
+    node_style?: NullableJsonNullValueInput | InputJsonValue
+    type?: string | null
+    source_position?: string | null
+    target_position?: string | null
+  }
+
+  export type db_nodes2UpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    materi?: StringFieldUpdateOperationsInput | string
+    position_x?: IntFieldUpdateOperationsInput | number
+    position_y?: IntFieldUpdateOperationsInput | number
+    node_style?: NullableJsonNullValueInput | InputJsonValue
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    source_position?: NullableStringFieldUpdateOperationsInput | string | null
+    target_position?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type db_nodes2UncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    materi?: StringFieldUpdateOperationsInput | string
+    position_x?: IntFieldUpdateOperationsInput | number
+    position_y?: IntFieldUpdateOperationsInput | number
+    parent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    node_style?: NullableJsonNullValueInput | InputJsonValue
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    source_position?: NullableStringFieldUpdateOperationsInput | string | null
+    target_position?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type db_userCreateInput = {
     id?: string
     username: string
@@ -5501,6 +7941,76 @@ export namespace Prisma {
   }
 
   export type db_edgesUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source_id?: StringFieldUpdateOperationsInput | string
+    target_id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    animated?: BoolFieldUpdateOperationsInput | boolean
+    source_handle?: NullableStringFieldUpdateOperationsInput | string | null
+    target_handle?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type db_edges2CreateInput = {
+    id?: string
+    source_id: string
+    target_id: string
+    type: string
+    animated: boolean
+    source_handle?: string | null
+    target_handle?: string | null
+  }
+
+  export type db_edges2UncheckedCreateInput = {
+    id?: string
+    source_id: string
+    target_id: string
+    type: string
+    animated: boolean
+    source_handle?: string | null
+    target_handle?: string | null
+  }
+
+  export type db_edges2UpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source_id?: StringFieldUpdateOperationsInput | string
+    target_id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    animated?: BoolFieldUpdateOperationsInput | boolean
+    source_handle?: NullableStringFieldUpdateOperationsInput | string | null
+    target_handle?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type db_edges2UncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source_id?: StringFieldUpdateOperationsInput | string
+    target_id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    animated?: BoolFieldUpdateOperationsInput | boolean
+    source_handle?: NullableStringFieldUpdateOperationsInput | string | null
+    target_handle?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type db_edges2CreateManyInput = {
+    id?: string
+    source_id: string
+    target_id: string
+    type: string
+    animated: boolean
+    source_handle?: string | null
+    target_handle?: string | null
+  }
+
+  export type db_edges2UpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source_id?: StringFieldUpdateOperationsInput | string
+    target_id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    animated?: BoolFieldUpdateOperationsInput | boolean
+    source_handle?: NullableStringFieldUpdateOperationsInput | string | null
+    target_handle?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type db_edges2UncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     source_id?: StringFieldUpdateOperationsInput | string
     target_id?: StringFieldUpdateOperationsInput | string
@@ -5778,6 +8288,71 @@ export namespace Prisma {
     _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
+  export type Db_nodes2ListRelationFilter = {
+    every?: db_nodes2WhereInput
+    some?: db_nodes2WhereInput
+    none?: db_nodes2WhereInput
+  }
+
+  export type Db_nodes2NullableScalarRelationFilter = {
+    is?: db_nodes2WhereInput | null
+    isNot?: db_nodes2WhereInput | null
+  }
+
+  export type db_nodes2OrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type db_nodes2OrderByRelevanceInput = {
+    fields: db_nodes2OrderByRelevanceFieldEnum | db_nodes2OrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type db_nodes2CountOrderByAggregateInput = {
+    id?: SortOrder
+    materi?: SortOrder
+    position_x?: SortOrder
+    position_y?: SortOrder
+    parent_id?: SortOrder
+    node_style?: SortOrder
+    type?: SortOrder
+    source_position?: SortOrder
+    target_position?: SortOrder
+  }
+
+  export type db_nodes2AvgOrderByAggregateInput = {
+    position_x?: SortOrder
+    position_y?: SortOrder
+  }
+
+  export type db_nodes2MaxOrderByAggregateInput = {
+    id?: SortOrder
+    materi?: SortOrder
+    position_x?: SortOrder
+    position_y?: SortOrder
+    parent_id?: SortOrder
+    type?: SortOrder
+    source_position?: SortOrder
+    target_position?: SortOrder
+  }
+
+  export type db_nodes2MinOrderByAggregateInput = {
+    id?: SortOrder
+    materi?: SortOrder
+    position_x?: SortOrder
+    position_y?: SortOrder
+    parent_id?: SortOrder
+    type?: SortOrder
+    source_position?: SortOrder
+    target_position?: SortOrder
+  }
+
+  export type db_nodes2SumOrderByAggregateInput = {
+    position_x?: SortOrder
+    position_y?: SortOrder
+  }
+
   export type db_userOrderByRelevanceInput = {
     fields: db_userOrderByRelevanceFieldEnum | db_userOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -5849,6 +8424,42 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBoolFilter<$PrismaModel>
     _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type db_edges2OrderByRelevanceInput = {
+    fields: db_edges2OrderByRelevanceFieldEnum | db_edges2OrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type db_edges2CountOrderByAggregateInput = {
+    id?: SortOrder
+    source_id?: SortOrder
+    target_id?: SortOrder
+    type?: SortOrder
+    animated?: SortOrder
+    source_handle?: SortOrder
+    target_handle?: SortOrder
+  }
+
+  export type db_edges2MaxOrderByAggregateInput = {
+    id?: SortOrder
+    source_id?: SortOrder
+    target_id?: SortOrder
+    type?: SortOrder
+    animated?: SortOrder
+    source_handle?: SortOrder
+    target_handle?: SortOrder
+  }
+
+  export type db_edges2MinOrderByAggregateInput = {
+    id?: SortOrder
+    source_id?: SortOrder
+    target_id?: SortOrder
+    type?: SortOrder
+    animated?: SortOrder
+    source_handle?: SortOrder
+    target_handle?: SortOrder
   }
 
   export type EnumNodeStatusFilter<$PrismaModel = never> = {
@@ -6000,6 +8611,64 @@ export namespace Prisma {
     update?: db_nodesUpdateWithWhereUniqueWithoutParentInput | db_nodesUpdateWithWhereUniqueWithoutParentInput[]
     updateMany?: db_nodesUpdateManyWithWhereWithoutParentInput | db_nodesUpdateManyWithWhereWithoutParentInput[]
     deleteMany?: db_nodesScalarWhereInput | db_nodesScalarWhereInput[]
+  }
+
+  export type db_nodes2CreateNestedManyWithoutParentInput = {
+    create?: XOR<db_nodes2CreateWithoutParentInput, db_nodes2UncheckedCreateWithoutParentInput> | db_nodes2CreateWithoutParentInput[] | db_nodes2UncheckedCreateWithoutParentInput[]
+    connectOrCreate?: db_nodes2CreateOrConnectWithoutParentInput | db_nodes2CreateOrConnectWithoutParentInput[]
+    createMany?: db_nodes2CreateManyParentInputEnvelope
+    connect?: db_nodes2WhereUniqueInput | db_nodes2WhereUniqueInput[]
+  }
+
+  export type db_nodes2CreateNestedOneWithoutChildrenInput = {
+    create?: XOR<db_nodes2CreateWithoutChildrenInput, db_nodes2UncheckedCreateWithoutChildrenInput>
+    connectOrCreate?: db_nodes2CreateOrConnectWithoutChildrenInput
+    connect?: db_nodes2WhereUniqueInput
+  }
+
+  export type db_nodes2UncheckedCreateNestedManyWithoutParentInput = {
+    create?: XOR<db_nodes2CreateWithoutParentInput, db_nodes2UncheckedCreateWithoutParentInput> | db_nodes2CreateWithoutParentInput[] | db_nodes2UncheckedCreateWithoutParentInput[]
+    connectOrCreate?: db_nodes2CreateOrConnectWithoutParentInput | db_nodes2CreateOrConnectWithoutParentInput[]
+    createMany?: db_nodes2CreateManyParentInputEnvelope
+    connect?: db_nodes2WhereUniqueInput | db_nodes2WhereUniqueInput[]
+  }
+
+  export type db_nodes2UpdateManyWithoutParentNestedInput = {
+    create?: XOR<db_nodes2CreateWithoutParentInput, db_nodes2UncheckedCreateWithoutParentInput> | db_nodes2CreateWithoutParentInput[] | db_nodes2UncheckedCreateWithoutParentInput[]
+    connectOrCreate?: db_nodes2CreateOrConnectWithoutParentInput | db_nodes2CreateOrConnectWithoutParentInput[]
+    upsert?: db_nodes2UpsertWithWhereUniqueWithoutParentInput | db_nodes2UpsertWithWhereUniqueWithoutParentInput[]
+    createMany?: db_nodes2CreateManyParentInputEnvelope
+    set?: db_nodes2WhereUniqueInput | db_nodes2WhereUniqueInput[]
+    disconnect?: db_nodes2WhereUniqueInput | db_nodes2WhereUniqueInput[]
+    delete?: db_nodes2WhereUniqueInput | db_nodes2WhereUniqueInput[]
+    connect?: db_nodes2WhereUniqueInput | db_nodes2WhereUniqueInput[]
+    update?: db_nodes2UpdateWithWhereUniqueWithoutParentInput | db_nodes2UpdateWithWhereUniqueWithoutParentInput[]
+    updateMany?: db_nodes2UpdateManyWithWhereWithoutParentInput | db_nodes2UpdateManyWithWhereWithoutParentInput[]
+    deleteMany?: db_nodes2ScalarWhereInput | db_nodes2ScalarWhereInput[]
+  }
+
+  export type db_nodes2UpdateOneWithoutChildrenNestedInput = {
+    create?: XOR<db_nodes2CreateWithoutChildrenInput, db_nodes2UncheckedCreateWithoutChildrenInput>
+    connectOrCreate?: db_nodes2CreateOrConnectWithoutChildrenInput
+    upsert?: db_nodes2UpsertWithoutChildrenInput
+    disconnect?: db_nodes2WhereInput | boolean
+    delete?: db_nodes2WhereInput | boolean
+    connect?: db_nodes2WhereUniqueInput
+    update?: XOR<XOR<db_nodes2UpdateToOneWithWhereWithoutChildrenInput, db_nodes2UpdateWithoutChildrenInput>, db_nodes2UncheckedUpdateWithoutChildrenInput>
+  }
+
+  export type db_nodes2UncheckedUpdateManyWithoutParentNestedInput = {
+    create?: XOR<db_nodes2CreateWithoutParentInput, db_nodes2UncheckedCreateWithoutParentInput> | db_nodes2CreateWithoutParentInput[] | db_nodes2UncheckedCreateWithoutParentInput[]
+    connectOrCreate?: db_nodes2CreateOrConnectWithoutParentInput | db_nodes2CreateOrConnectWithoutParentInput[]
+    upsert?: db_nodes2UpsertWithWhereUniqueWithoutParentInput | db_nodes2UpsertWithWhereUniqueWithoutParentInput[]
+    createMany?: db_nodes2CreateManyParentInputEnvelope
+    set?: db_nodes2WhereUniqueInput | db_nodes2WhereUniqueInput[]
+    disconnect?: db_nodes2WhereUniqueInput | db_nodes2WhereUniqueInput[]
+    delete?: db_nodes2WhereUniqueInput | db_nodes2WhereUniqueInput[]
+    connect?: db_nodes2WhereUniqueInput | db_nodes2WhereUniqueInput[]
+    update?: db_nodes2UpdateWithWhereUniqueWithoutParentInput | db_nodes2UpdateWithWhereUniqueWithoutParentInput[]
+    updateMany?: db_nodes2UpdateManyWithWhereWithoutParentInput | db_nodes2UpdateManyWithWhereWithoutParentInput[]
+    deleteMany?: db_nodes2ScalarWhereInput | db_nodes2ScalarWhereInput[]
   }
 
   export type BoolFieldUpdateOperationsInput = {
@@ -6336,6 +9005,135 @@ export namespace Prisma {
     target_position?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type db_nodes2CreateWithoutParentInput = {
+    id?: string
+    materi: string
+    position_x: number
+    position_y: number
+    node_style?: NullableJsonNullValueInput | InputJsonValue
+    type?: string | null
+    source_position?: string | null
+    target_position?: string | null
+    children?: db_nodes2CreateNestedManyWithoutParentInput
+  }
+
+  export type db_nodes2UncheckedCreateWithoutParentInput = {
+    id?: string
+    materi: string
+    position_x: number
+    position_y: number
+    node_style?: NullableJsonNullValueInput | InputJsonValue
+    type?: string | null
+    source_position?: string | null
+    target_position?: string | null
+    children?: db_nodes2UncheckedCreateNestedManyWithoutParentInput
+  }
+
+  export type db_nodes2CreateOrConnectWithoutParentInput = {
+    where: db_nodes2WhereUniqueInput
+    create: XOR<db_nodes2CreateWithoutParentInput, db_nodes2UncheckedCreateWithoutParentInput>
+  }
+
+  export type db_nodes2CreateManyParentInputEnvelope = {
+    data: db_nodes2CreateManyParentInput | db_nodes2CreateManyParentInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type db_nodes2CreateWithoutChildrenInput = {
+    id?: string
+    materi: string
+    position_x: number
+    position_y: number
+    node_style?: NullableJsonNullValueInput | InputJsonValue
+    type?: string | null
+    source_position?: string | null
+    target_position?: string | null
+    parent?: db_nodes2CreateNestedOneWithoutChildrenInput
+  }
+
+  export type db_nodes2UncheckedCreateWithoutChildrenInput = {
+    id?: string
+    materi: string
+    position_x: number
+    position_y: number
+    parent_id?: string | null
+    node_style?: NullableJsonNullValueInput | InputJsonValue
+    type?: string | null
+    source_position?: string | null
+    target_position?: string | null
+  }
+
+  export type db_nodes2CreateOrConnectWithoutChildrenInput = {
+    where: db_nodes2WhereUniqueInput
+    create: XOR<db_nodes2CreateWithoutChildrenInput, db_nodes2UncheckedCreateWithoutChildrenInput>
+  }
+
+  export type db_nodes2UpsertWithWhereUniqueWithoutParentInput = {
+    where: db_nodes2WhereUniqueInput
+    update: XOR<db_nodes2UpdateWithoutParentInput, db_nodes2UncheckedUpdateWithoutParentInput>
+    create: XOR<db_nodes2CreateWithoutParentInput, db_nodes2UncheckedCreateWithoutParentInput>
+  }
+
+  export type db_nodes2UpdateWithWhereUniqueWithoutParentInput = {
+    where: db_nodes2WhereUniqueInput
+    data: XOR<db_nodes2UpdateWithoutParentInput, db_nodes2UncheckedUpdateWithoutParentInput>
+  }
+
+  export type db_nodes2UpdateManyWithWhereWithoutParentInput = {
+    where: db_nodes2ScalarWhereInput
+    data: XOR<db_nodes2UpdateManyMutationInput, db_nodes2UncheckedUpdateManyWithoutParentInput>
+  }
+
+  export type db_nodes2ScalarWhereInput = {
+    AND?: db_nodes2ScalarWhereInput | db_nodes2ScalarWhereInput[]
+    OR?: db_nodes2ScalarWhereInput[]
+    NOT?: db_nodes2ScalarWhereInput | db_nodes2ScalarWhereInput[]
+    id?: StringFilter<"db_nodes2"> | string
+    materi?: StringFilter<"db_nodes2"> | string
+    position_x?: IntFilter<"db_nodes2"> | number
+    position_y?: IntFilter<"db_nodes2"> | number
+    parent_id?: StringNullableFilter<"db_nodes2"> | string | null
+    node_style?: JsonNullableFilter<"db_nodes2">
+    type?: StringNullableFilter<"db_nodes2"> | string | null
+    source_position?: StringNullableFilter<"db_nodes2"> | string | null
+    target_position?: StringNullableFilter<"db_nodes2"> | string | null
+  }
+
+  export type db_nodes2UpsertWithoutChildrenInput = {
+    update: XOR<db_nodes2UpdateWithoutChildrenInput, db_nodes2UncheckedUpdateWithoutChildrenInput>
+    create: XOR<db_nodes2CreateWithoutChildrenInput, db_nodes2UncheckedCreateWithoutChildrenInput>
+    where?: db_nodes2WhereInput
+  }
+
+  export type db_nodes2UpdateToOneWithWhereWithoutChildrenInput = {
+    where?: db_nodes2WhereInput
+    data: XOR<db_nodes2UpdateWithoutChildrenInput, db_nodes2UncheckedUpdateWithoutChildrenInput>
+  }
+
+  export type db_nodes2UpdateWithoutChildrenInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    materi?: StringFieldUpdateOperationsInput | string
+    position_x?: IntFieldUpdateOperationsInput | number
+    position_y?: IntFieldUpdateOperationsInput | number
+    node_style?: NullableJsonNullValueInput | InputJsonValue
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    source_position?: NullableStringFieldUpdateOperationsInput | string | null
+    target_position?: NullableStringFieldUpdateOperationsInput | string | null
+    parent?: db_nodes2UpdateOneWithoutChildrenNestedInput
+  }
+
+  export type db_nodes2UncheckedUpdateWithoutChildrenInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    materi?: StringFieldUpdateOperationsInput | string
+    position_x?: IntFieldUpdateOperationsInput | number
+    position_y?: IntFieldUpdateOperationsInput | number
+    parent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    node_style?: NullableJsonNullValueInput | InputJsonValue
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    source_position?: NullableStringFieldUpdateOperationsInput | string | null
+    target_position?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type db_nodesCreateManyParentInput = {
     id?: string
     materi: string
@@ -6372,6 +9170,52 @@ export namespace Prisma {
   }
 
   export type db_nodesUncheckedUpdateManyWithoutParentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    materi?: StringFieldUpdateOperationsInput | string
+    position_x?: IntFieldUpdateOperationsInput | number
+    position_y?: IntFieldUpdateOperationsInput | number
+    node_style?: NullableJsonNullValueInput | InputJsonValue
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    source_position?: NullableStringFieldUpdateOperationsInput | string | null
+    target_position?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type db_nodes2CreateManyParentInput = {
+    id?: string
+    materi: string
+    position_x: number
+    position_y: number
+    node_style?: NullableJsonNullValueInput | InputJsonValue
+    type?: string | null
+    source_position?: string | null
+    target_position?: string | null
+  }
+
+  export type db_nodes2UpdateWithoutParentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    materi?: StringFieldUpdateOperationsInput | string
+    position_x?: IntFieldUpdateOperationsInput | number
+    position_y?: IntFieldUpdateOperationsInput | number
+    node_style?: NullableJsonNullValueInput | InputJsonValue
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    source_position?: NullableStringFieldUpdateOperationsInput | string | null
+    target_position?: NullableStringFieldUpdateOperationsInput | string | null
+    children?: db_nodes2UpdateManyWithoutParentNestedInput
+  }
+
+  export type db_nodes2UncheckedUpdateWithoutParentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    materi?: StringFieldUpdateOperationsInput | string
+    position_x?: IntFieldUpdateOperationsInput | number
+    position_y?: IntFieldUpdateOperationsInput | number
+    node_style?: NullableJsonNullValueInput | InputJsonValue
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    source_position?: NullableStringFieldUpdateOperationsInput | string | null
+    target_position?: NullableStringFieldUpdateOperationsInput | string | null
+    children?: db_nodes2UncheckedUpdateManyWithoutParentNestedInput
+  }
+
+  export type db_nodes2UncheckedUpdateManyWithoutParentInput = {
     id?: StringFieldUpdateOperationsInput | string
     materi?: StringFieldUpdateOperationsInput | string
     position_x?: IntFieldUpdateOperationsInput | number

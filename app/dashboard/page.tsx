@@ -78,10 +78,10 @@ const Dashboard: NextPage = () => {
               Backend Development
             </h3>
             <button
-              disabled
-              className="w-full bg-gray-300 text-gray-500 font-medium py-2 px-4 rounded cursor-not-allowed"
+              onClick={() => router.push("/dashboard/backend")}
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded transition-colors"
             >
-              Coming Soon
+              Lanjutkan Belajar →
             </button>
           </div>
         </div>

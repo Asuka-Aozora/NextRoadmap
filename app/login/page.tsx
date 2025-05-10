@@ -44,11 +44,16 @@ export default function LoginPage() {
       router.refresh(); 
       await new Promise((resolve) => setTimeout(resolve, 100));
       router.push("/dashboard");
+      if (response.ok) {
+        router.push("/dashboard");
+      }
     } catch (err) {
       console.error("Login error:", err);
       setError(err instanceof Error ? err.message : "Terjadi kesalahan");
     } finally {
       setIsLoading(false);
+         router.refresh(); 
+      router.push("/dashboard");
     }
   };
 
